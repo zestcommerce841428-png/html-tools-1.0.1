@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Cache
+.eslintcache
+.stylelintcache
+
+# Build (if any)
+dist/
+build/
+
+# Deployment
+.vercel/
+.netlify/
+
+# Environment
+.env
+.env.local
+
+# Temporary files (Codebuddy automation)
+.tmp/
+
+# Claude Code
+.claude/
+
+# Codebuddy
+.codebuddy/
+

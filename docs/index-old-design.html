@@ -1,0 +1,5257 @@
+<!doctype html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WebUtils - 纯前端工具集</title>
+    <meta
+      name="description"
+      content="WebUtils 是一个纯前端工具集，包含 152+ 个实用工具：JSON 格式化、时间戳转换、Base64 编解码、二维码生成、图片压缩等。单文件、零构建、可离线使用。"
+    />
+    <meta
+      name="keywords"
+      content="前端工具,开发工具,JSON格式化,时间戳转换,Base64,二维码,图片压缩,在线工具"
+    />
+    <meta name="author" content="WebUtils" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://tools.realtime-ai.chat/" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <meta name="theme-color" content="#0a0a0f" />
+    <link rel="manifest" href="manifest.json" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="WebUtils - 纯前端工具集" />
+    <meta property="og:description" content="520+ 个纯前端实用工具，单文件、零构建、可离线使用" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tools.realtime-ai.chat/" />
+    <meta property="og:locale" content="zh_CN" />
+    <!-- OG Image -->
+    <meta property="og:image" content="https://tools.realtime-ai.chat/social-preview.png" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+    <meta property="og:image:type" content="image/png" />
+    <meta name="twitter:image" content="https://tools.realtime-ai.chat/social-preview.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="WebUtils - 纯前端工具集" />
+    <meta name="twitter:description" content="520+ 个纯前端实用工具，单文件、零构建、可离线使用" />
+
+    <!-- JSON-LD 结构化数据 -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "WebUtils",
+        "alternateName": "WebUtils 纯前端工具集",
+        "description": "520+ 个纯前端开发者工具集，单文件架构，零构建，可离线使用。包含 JSON 格式化、时间戳转换、Base64 编解码、二维码生成、图片压缩、正则测试等实用工具。所有数据处理在浏览器端完成，保护用户隐私。",
+        "url": "https://tools.realtime-ai.chat/",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge.",
+        "softwareVersion": "1.0",
+        "inLanguage": ["zh-CN", "en"],
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "chicogong",
+          "url": "https://github.com/chicogong"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "WebUtils",
+          "url": "https://tools.realtime-ai.chat/"
+        },
+        "featureList": [
+          "JSON/YAML/XML 格式化与转换",
+          "Base64/URL/Unicode 编解码",
+          "时间戳与时区转换",
+          "二维码与条形码生成",
+          "图片压缩与格式转换",
+          "正则表达式测试",
+          "哈希计算 (MD5/SHA)",
+          "JWT Token 解码",
+          "颜色格式转换",
+          "密码生成器"
+        ],
+        "screenshot": "https://tools.realtime-ai.chat/social-preview.png",
+        "sameAs": ["https://github.com/chicogong/html-tools"]
+      }
+    </script>
+
+    <!-- 网站结构化数据 -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "WebUtils",
+        "url": "https://tools.realtime-ai.chat/",
+        "description": "520+ 个纯前端开发者工具集",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://tools.realtime-ai.chat/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+
+    <!-- FAQ 结构化数据 -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "WebUtils 是什么？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "WebUtils 是一个纯前端工具集，包含 152+ 个实用工具，涵盖开发、文本、时间、生成器、隐私、媒体、安全、网络等多个类别。所有工具都是单文件 HTML，无需安装、无需构建，直接在浏览器中打开即可使用。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "这些工具安全吗？我的数据会被上传到服务器吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "完全安全。所有工具的数据处理都在浏览器本地完成，不会向任何服务器发送数据。您可以完全离线使用这些工具，甚至可以下载 HTML 文件到本地使用。我们采用纯前端架构，确保您的隐私和数据安全。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "如何使用这些工具？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "使用非常简单：1) 在首页浏览或搜索您需要的工具；2) 点击工具卡片进入工具页面；3) 输入或粘贴您的数据；4) 点击相应的操作按钮（格式化、转换、生成等）；5) 复制结果或分享链接。大多数工具还支持 URL Hash 持久化，刷新页面不会丢失数据。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "可以离线使用吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "可以。您可以下载任何工具的 HTML 文件到本地，然后在浏览器中打开使用，完全不需要网络连接。所有工具都是单文件架构，所有代码（HTML、CSS、JavaScript）都内联在一个文件中，除了字体可能需要联网加载外，其他功能都可以完全离线使用。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "支持哪些浏览器？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "WebUtils 支持所有现代浏览器，包括 Chrome、Firefox、Safari、Edge 等。我们使用标准的 Web 技术（HTML5、CSS3、ES6+），不依赖任何特定浏览器的私有 API。建议使用最新版本的浏览器以获得最佳体验。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "有哪些主要工具类别？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "WebUtils 包含 152 个主要类别：1) 开发工具（JSON/YAML/XML 格式化、Base64/JWT 等）；2) 文本工具（Diff、Markdown、字数统计）；3) 时间工具（时间戳、时区转换）；4) 生成器（UUID、二维码、密码）；5) 隐私工具（日志脱敏、加密）；6) 媒体工具（图片压缩、SVG、摄像头）；7) 安全工具（AES、RSA、密码强度）；8) 网络工具（IP、端口、MAC）；9) 计算器；10) 转换器；11) 提取器；12) AI 工具。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "工具是否收费？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "完全免费。WebUtils 是一个开源项目，所有工具都可以免费使用，没有任何限制。您可以在 GitHub 上查看源代码，也可以下载、修改和分发这些工具。我们不会收集任何用户数据，也不会展示广告。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "如何分享处理结果？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "大多数工具都提供了分享功能。您的输入数据会被编码到 URL 中，点击"分享"按钮可以生成一个包含当前输入的完整链接。将这个链接发送给他人，他们打开后就能看到相同的输入和结果。这种分享方式不依赖服务器，数据都在 URL 中，更加安全和隐私。"
+            }
+          }
+        ]
+      }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media = 'all'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+    <style>
+      :root {
+        --bg-deep: #0a0a0f;
+        --bg-surface: #12121a;
+        --bg-card: #1a1a24;
+        --bg-card-hover: #22222e;
+        --text-primary: #e8e8ed;
+        --text-secondary: #8888a0;
+        --text-muted: #55556a;
+        --border-subtle: #2a2a3a;
+        --border-strong: #3a3a4a;
+        --accent-cyan: #00f5d4;
+        --accent-magenta: #f72585;
+        --accent-yellow: #fee440;
+        --accent-blue: #4cc9f0;
+        --accent-purple: #7b2cbf;
+        --accent-orange: #ff9f1c;
+        --accent-red: #ff6b6b;
+        --accent-green: #06d6a0;
+        --glow-cyan: rgb(0 245 212 / 15%);
+        --glow-magenta: rgb(247 37 133 / 15%);
+        --radius-sm: 4px;
+        --radius-md: 8px;
+        --radius-lg: 12px;
+      }
+
+      [data-theme="light"] {
+        --bg-deep: #fafafa;
+        --bg-surface: #fff;
+        --bg-card: #fff;
+        --bg-card-hover: #f5f5f5;
+        --text-primary: #1a1a1a;
+        --text-secondary: #666;
+        --text-muted: #999;
+        --border-subtle: #e5e5e5;
+        --border-strong: #d4d4d4;
+        --accent-cyan: #00d4b8;
+        --accent-magenta: #e63975;
+        --accent-yellow: #f5c518;
+        --accent-blue: #0ea5e9;
+        --accent-purple: #9333ea;
+        --glow-cyan: rgb(0 212 184 / 10%);
+        --glow-magenta: rgb(230 57 117 / 10%);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Space Grotesk", system-ui, sans-serif;
+        background: var(--bg-deep);
+        color: var(--text-primary);
+        min-height: 100vh;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      .bg-grid {
+        position: fixed;
+        inset: 0;
+        background-image:
+          linear-gradient(rgb(0 245 212 / 3%) 1px, transparent 1px),
+          linear-gradient(90deg, rgb(0 245 212 / 3%) 1px, transparent 1px);
+        background-size: 50px 50px;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .bg-gradient {
+        position: fixed;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 80% 50% at 20% -10%, var(--glow-cyan), transparent),
+          radial-gradient(ellipse 60% 40% at 80% 110%, var(--glow-magenta), transparent);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .container {
+        position: relative;
+        z-index: 1;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 40px 24px 80px;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 48px;
+        padding-top: 20px;
+        position: relative;
+      }
+
+      .hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+        margin-top: 24px;
+        flex-wrap: wrap;
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-number {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 2rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .stat-label {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+
+      .theme-toggle {
+        position: absolute;
+        top: 20px;
+        right: 0;
+        width: 44px;
+        height: 44px;
+        background: var(--bg-surface);
+        border: 1px solid var(--border-subtle);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1.1rem;
+        transition: all 0.25s ease;
+        color: var(--text-secondary);
+      }
+
+      .theme-toggle:hover {
+        border-color: var(--accent-cyan);
+        color: var(--text-primary);
+        box-shadow: 0 0 0 3px rgb(0 245 212 / 12%);
+      }
+
+      .logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 16px;
+      }
+
+      .logo-icon {
+        width: 56px;
+        height: 56px;
+        background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--bg-deep);
+        transform: rotate(-3deg);
+        box-shadow: 0 4px 20px var(--glow-cyan);
+      }
+
+      header h1 {
+        font-family: "JetBrains Mono", monospace;
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .tagline {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .tagline span {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .tagline .dot {
+        width: 4px;
+        height: 4px;
+        background: var(--accent-cyan);
+        border-radius: 50%;
+      }
+
+      .search-wrapper {
+        max-width: 600px;
+        margin: 0 auto 36px;
+        position: relative;
+      }
+
+      .search-box {
+        position: relative;
+      }
+
+      .search-box::before {
+        content: ">";
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: "JetBrains Mono", monospace;
+        font-size: 1.1rem;
+        color: var(--accent-cyan);
+        font-weight: 600;
+      }
+
+      .search-box input {
+        width: 100%;
+        padding: 16px 20px 16px 44px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 1rem;
+        background: var(--bg-surface);
+        border: 1px solid var(--border-subtle);
+        border-radius: 24px;
+        color: var(--text-primary);
+        outline: none;
+        transition: all 0.25s ease;
+      }
+
+      .search-box input::placeholder {
+        color: var(--text-muted);
+      }
+
+      .search-box input:focus {
+        border-color: var(--accent-cyan);
+        box-shadow:
+          0 0 0 3px rgb(0 245 212 / 12%),
+          0 4px 16px rgb(0 245 212 / 10%);
+      }
+
+      .search-results-count {
+        text-align: center;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-top: 12px;
+        min-height: 20px;
+      }
+
+      .search-hint {
+        text-align: center;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin-top: 8px;
+      }
+
+      .search-hint kbd {
+        display: inline-block;
+        padding: 2px 6px;
+        background: var(--bg-surface);
+        border: 1px solid var(--border-subtle);
+        border-radius: 4px;
+        font-size: 0.7rem;
+        margin: 0 2px;
+      }
+
+      .categories {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 40px;
+      }
+
+      .category-btn {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.85rem;
+        font-weight: 500;
+        padding: 10px 18px;
+        background: var(--bg-surface);
+        border: 1px solid var(--border-subtle);
+        border-radius: 20px;
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: all 0.25s ease;
+        position: relative;
+        overflow: hidden;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .category-btn .cat-icon {
+        font-size: 1rem;
+        transition: transform 0.25s ease;
+      }
+
+      .category-btn .cat-count {
+        font-size: 0.7rem;
+        padding: 2px 8px;
+        background: var(--bg-card);
+        border-radius: 12px;
+        color: var(--text-muted);
+        transition: all 0.25s ease;
+        font-weight: 600;
+      }
+
+      .category-btn:hover {
+        border-color: var(--accent-cyan);
+        color: var(--text-primary);
+        background: var(--bg-card);
+      }
+
+      .category-btn:hover .cat-icon {
+        transform: scale(1.1);
+      }
+
+      .category-btn:hover .cat-count {
+        background: rgb(0 245 212 / 15%);
+        color: var(--accent-cyan);
+      }
+
+      .category-btn.active {
+        background: var(--bg-card);
+        border-color: var(--accent-cyan);
+        color: var(--text-primary);
+        box-shadow:
+          0 0 0 1px var(--accent-cyan),
+          0 2px 12px rgb(0 245 212 / 20%);
+      }
+
+      .category-btn.active .cat-count {
+        background: var(--accent-cyan);
+        color: var(--bg-deep);
+      }
+
+      .category-btn.active .cat-icon {
+        transform: scale(1.1);
+      }
+
+      /* Light theme adjustments */
+      [data-theme="light"] .category-btn.active {
+        background: rgb(0 212 184 / 8%);
+        box-shadow:
+          0 0 0 1px var(--accent-cyan),
+          0 2px 12px rgb(0 212 184 / 15%);
+      }
+
+      [data-theme="light"] .category-btn:hover .cat-count {
+        background: rgb(0 212 184 / 12%);
+      }
+
+      .tools-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 20px;
+      }
+
+      .tool-card {
+        position: relative;
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-lg);
+        padding: 24px;
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow: visible;
+        animation: fade-in-up 0.5s ease backwards;
+      }
+
+      .tool-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--card-accent, var(--accent-cyan)), transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      }
+
+      .tool-card:hover {
+        border-color: var(--card-accent, var(--accent-cyan));
+        background: var(--bg-card-hover);
+        transform: translateY(-3px);
+        box-shadow:
+          0 8px 24px -8px rgb(0 0 0 / 40%),
+          0 0 0 1px var(--card-accent, var(--accent-cyan));
+      }
+
+      .tool-card:hover::before {
+        opacity: 1;
+      }
+
+      .tool-card-header {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .tool-title-group {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        flex: 1;
+      }
+
+      .tool-icon {
+        width: 44px;
+        height: 44px;
+        background: var(--bg-surface);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 18px;
+        color: var(--card-accent, var(--accent-cyan));
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+      }
+
+      .tool-card:hover .tool-icon {
+        background: var(--card-accent, var(--accent-cyan));
+        border-color: var(--card-accent, var(--accent-cyan));
+        color: var(--bg-deep);
+        transform: scale(1.05);
+      }
+
+      .tool-card h3 {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin: 0;
+        line-height: 1.3;
+      }
+
+      .tool-card p {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin: 0;
+        flex-grow: 1;
+      }
+
+      .tool-card-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 4px;
+      }
+
+      .tool-tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.7rem;
+        font-weight: 500;
+        padding: 4px 10px;
+        background: var(--bg-surface);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-sm);
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .tool-arrow {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 1.2rem;
+        color: var(--text-muted);
+        transition: all 0.3s ease;
+      }
+
+      .tool-card:hover .tool-arrow {
+        color: var(--card-accent, var(--accent-cyan));
+        transform: translateX(4px);
+      }
+
+      .tool-card.hidden {
+        display: none;
+      }
+
+      /* 分类颜色 */
+      .tool-card[data-category="dev"] {
+        --card-accent: var(--accent-cyan);
+      }
+      .tool-card[data-category="text"] {
+        --card-accent: var(--accent-blue);
+      }
+      .tool-card[data-category="time"] {
+        --card-accent: var(--accent-yellow);
+      }
+      .tool-card[data-category="generator"] {
+        --card-accent: var(--accent-magenta);
+      }
+      .tool-card[data-category="privacy"] {
+        --card-accent: var(--accent-purple);
+      }
+      .tool-card[data-category="media"] {
+        --card-accent: var(--accent-red);
+      }
+      .tool-card[data-category="security"] {
+        --card-accent: var(--accent-orange);
+      }
+      .tool-card[data-category="network"] {
+        --card-accent: var(--accent-green);
+      }
+      .tool-card[data-category="calculator"] {
+        --card-accent: #f97316;
+      }
+      .tool-card[data-category="converter"] {
+        --card-accent: #a855f7;
+      }
+      .tool-card[data-category="extractor"] {
+        --card-accent: #ec4899;
+      }
+      .tool-card[data-category="ai"] {
+        --card-accent: #6366f1;
+      }
+
+      .favorite-btn {
+        width: 36px;
+        height: 36px;
+        background: var(--bg-surface);
+        border: 1px solid var(--border-subtle);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 16px;
+        transition: all 0.25s ease;
+        color: var(--text-muted);
+        flex-shrink: 0;
+        margin-left: auto;
+      }
+
+      .favorite-btn:hover {
+        border-color: var(--accent-yellow);
+        background: var(--bg-card-hover);
+        color: var(--accent-yellow);
+        box-shadow: 0 0 0 3px rgb(254 228 64 / 15%);
+      }
+
+      .favorite-btn.active {
+        background: var(--accent-yellow);
+        border-color: var(--accent-yellow);
+        color: var(--bg-deep);
+      }
+
+      .favorite-btn.active:hover {
+        box-shadow: 0 0 0 3px rgb(254 228 64 / 25%);
+      }
+
+      .favorite-btn:focus-visible {
+        outline: none;
+        border-color: var(--accent-yellow);
+        box-shadow: 0 0 0 3px rgb(254 228 64 / 20%);
+      }
+
+      .tool-card:focus-visible {
+        outline: none;
+        border-color: var(--card-accent, var(--accent-cyan));
+        box-shadow:
+          0 0 0 3px rgb(0 245 212 / 15%),
+          0 8px 24px -8px rgb(0 0 0 / 40%);
+        transform: translateY(-3px);
+      }
+
+      .no-results {
+        text-align: center;
+        padding: 60px 20px;
+        display: none;
+      }
+
+      .no-results.show {
+        display: block;
+      }
+      .no-results-icon {
+        font-size: 3rem;
+        margin-bottom: 16px;
+        opacity: 0.5;
+      }
+
+      .no-results p {
+        font-family: "JetBrains Mono", monospace;
+        color: var(--text-muted);
+        font-size: 1rem;
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 80px;
+        padding: 32px 0;
+        border-top: 1px solid var(--border-subtle);
+      }
+
+      footer p {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      footer a {
+        color: var(--accent-cyan);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      footer a:hover {
+        color: var(--text-primary);
+      }
+
+      @keyframes fade-in-up {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (width <= 640px) {
+        .container {
+          padding: 16px 12px 60px;
+        }
+
+        /* Header 紧凑布局 */
+        header {
+          margin-bottom: 24px;
+          padding-top: 12px;
+        }
+        .theme-toggle {
+          top: 12px;
+          width: 40px;
+          height: 40px;
+          font-size: 1rem;
+        }
+        .logo {
+          flex-direction: row;
+          gap: 10px;
+          margin-bottom: 8px;
+        }
+        .logo-icon {
+          width: 40px;
+          height: 40px;
+          font-size: 18px;
+        }
+        header h1 {
+          font-size: 1.5rem;
+        }
+        .tagline {
+          font-size: 0.75rem;
+          gap: 6px;
+        }
+        .tagline .dot {
+          width: 3px;
+          height: 3px;
+        }
+
+        /* 搜索框 */
+        .search-wrapper {
+          margin-bottom: 20px;
+        }
+        .search-box input {
+          padding: 12px 16px 12px 36px;
+          font-size: 0.9rem;
+        }
+        .search-box::before {
+          left: 14px;
+          font-size: 1rem;
+        }
+
+        /* 分类横向滚动 */
+        .categories {
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          justify-content: flex-start;
+          gap: 8px;
+          margin: 0 -12px 24px;
+          padding: 0 12px 8px;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+        }
+        .categories::-webkit-scrollbar {
+          display: none;
+        }
+        .category-btn {
+          padding: 8px 14px;
+          font-size: 0.75rem;
+          white-space: nowrap;
+          flex-shrink: 0;
+        }
+
+        /* 工具卡片紧凑 */
+        .tools-grid {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+        .tool-card {
+          padding: 16px;
+          gap: 8px;
+        }
+        .tool-icon {
+          width: 36px;
+          height: 36px;
+          font-size: 16px;
+        }
+        .tool-title-group {
+          gap: 10px;
+        }
+        .tool-card h3 {
+          font-size: 0.95rem;
+        }
+        .tool-card p {
+          font-size: 0.8rem;
+          line-height: 1.5;
+        }
+        .tool-tag {
+          font-size: 0.65rem;
+          padding: 3px 8px;
+        }
+        .tool-arrow {
+          font-size: 1rem;
+        }
+        .favorite-btn {
+          width: 32px;
+          height: 32px;
+          font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+          margin-top: 40px;
+          padding: 20px 0;
+        }
+        footer p {
+          font-size: 0.75rem;
+          gap: 6px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-grid"></div>
+    <div class="bg-gradient"></div>
+
+    <div class="container">
+      <header>
+        <button class="theme-toggle" id="theme-toggle" aria-label="切换主题">
+          <span class="theme-icon">🌙</span>
+        </button>
+        <div class="logo">
+          <div class="logo-icon">&lt;/&gt;</div>
+          <h1>WebUtils</h1>
+        </div>
+        <div class="tagline">
+          <span>纯前端工具集</span>
+          <span class="dot"></span>
+          <span>单文件</span>
+          <span class="dot"></span>
+          <span>零构建</span>
+          <span class="dot"></span>
+          <span>可离线使用</span>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number" id="tool-count">164</div>
+            <div class="stat-label">工具</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" id="category-count">12</div>
+            <div class="stat-label">分类</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">免费</div>
+          </div>
+        </div>
+      </header>
+
+      <div class="search-wrapper">
+        <div class="search-box">
+          <input
+            type="text"
+            id="search"
+            placeholder="搜索工具... (按 / 聚焦)"
+            autocomplete="off"
+            spellcheck="false"
+          />
+        </div>
+        <div class="search-results-count" id="search-results-count"></div>
+        <div class="search-hint">
+          按
+          <kbd>/</kbd>
+          聚焦搜索 ·
+          <kbd>Esc</kbd>
+          取消
+        </div>
+      </div>
+
+      <div class="categories" id="categories"></div>
+
+      <div class="tools-grid" id="tools-grid"></div>
+
+      <div class="no-results" id="no-results">
+        <div class="no-results-icon">∅</div>
+        <p>没有找到匹配的工具</p>
+      </div>
+
+      <footer>
+        <p>
+          <span>纯 HTML/CSS/JS</span>
+          <span>·</span>
+          <span>无构建步骤</span>
+          <span>·</span>
+          <a href="https://github.com/chicogong/html-tools" target="_blank" rel="noreferrer">
+            GitHub →
+          </a>
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      // ==================== 数据定义 ====================
+      const CATEGORIES = [
+        { id: "all", name: "全部", icon: "🏠" },
+        { id: "favorites", name: "收藏", icon: "⭐" },
+        { id: "dev", name: "开发工具", icon: "⚡" },
+        { id: "text", name: "文本工具", icon: "📝" },
+        { id: "time", name: "时间工具", icon: "⏰" },
+        { id: "generator", name: "生成器", icon: "🎲" },
+        { id: "media", name: "媒体工具", icon: "🖼️" },
+        { id: "privacy", name: "隐私安全", icon: "🔒" },
+        { id: "security", name: "安全工具", icon: "🛡️" },
+        { id: "network", name: "网络工具", icon: "🌐" },
+        { id: "calculator", name: "计算器", icon: "🔢" },
+        { id: "converter", name: "转换器", icon: "🔄" },
+        { id: "extractor", name: "提取器", icon: "📤" },
+        { id: "ai", name: "AI 工具", icon: "🤖" }
+      ];
+
+      const TOOLS = [
+        // 开发工具
+        {
+          url: "tools/dev/html-formatter.html",
+          category: "dev",
+          name: "HTML 格式化",
+          desc: "HTML 代码格式化、压缩和美化",
+          icon: "</>",
+          keywords: "html 格式化 美化 压缩 beautify minify format"
+        },
+        {
+          url: "tools/dev/js-formatter.html",
+          category: "dev",
+          name: "JavaScript 格式化",
+          desc: "JavaScript 代码格式化、压缩和美化",
+          icon: "JS",
+          keywords: "javascript js 格式化 美化 压缩 beautify minify format"
+        },
+        {
+          url: "tools/dev/json-diff.html",
+          category: "dev",
+          name: "JSON Diff 对比",
+          desc: "智能对比两个 JSON 的结构和值差异",
+          icon: "≠",
+          keywords: "json diff 对比 比较 差异 compare"
+        },
+        {
+          url: "tools/dev/css-border-radius.html",
+          category: "dev",
+          name: "Border Radius 生成器",
+          desc: "CSS 圆角可视化生成器",
+          icon: "◜",
+          keywords: "css border-radius 圆角 生成器 可视化 generator"
+        },
+        {
+          url: "tools/dev/code-diff.html",
+          category: "dev",
+          name: "代码对比工具",
+          desc: "并排对比两段代码的差异，高亮显示变更",
+          icon: "⇔",
+          keywords: "代码对比工具"
+        },
+        {
+          url: "tools/dev/clipboard-viewer.html",
+          category: "dev",
+          name: "剪贴板查看器",
+          desc: "查看剪贴板中的各种格式数据",
+          icon: "📋",
+          keywords: "剪贴板 clipboard 查看 格式"
+        },
+        {
+          url: "tools/dev/number-base.html",
+          category: "dev",
+          name: "进制转换器",
+          desc: "二进制、八进制、十进制、十六进制互转",
+          icon: "01",
+          keywords: "进制 二进制 八进制 十进制 十六进制 binary octal decimal hex"
+        },
+        {
+          url: "tools/dev/color-palette.html",
+          category: "dev",
+          name: "配色方案生成器",
+          desc: "生成配色方案和调色板",
+          icon: "🎨",
+          keywords: "配色方案生成器"
+        },
+        {
+          url: "tools/dev/contrast-checker.html",
+          category: "dev",
+          name: "颜色对比度检查器",
+          desc: "检查颜色对比度是否符合 WCAG 2.1 无障碍标准",
+          icon: "◐",
+          keywords: "对比度 contrast wcag 无障碍 accessibility 颜色 color a11y"
+        },
+        {
+          url: "tools/dev/color-converter.html",
+          category: "dev",
+          name: "颜色转换器",
+          desc: "HEX、RGB、HSL 颜色格式互转，可视化调色",
+          icon: "🎨",
+          keywords: "颜色 color hex rgb hsl 转换 调色板"
+        },
+        {
+          url: "tools/dev/regex-tester.html",
+          category: "dev",
+          name: "正则测试器",
+          desc: "正则表达式测试，匹配高亮，捕获组展示",
+          icon: ".*",
+          keywords: "正则 regex 测试 匹配 捕获组 regexp"
+        },
+        {
+          url: "tools/dev/regex-cheatsheet.html",
+          category: "dev",
+          name: "正则表达式速查",
+          desc: "正则表达式语法速查表",
+          icon: "📖",
+          keywords: "正则 regex 速查 cheatsheet 语法"
+        },
+        {
+          url: "tools/dev/ascii-table.html",
+          category: "dev",
+          name: "ASCII 码表",
+          desc: "ASCII 码表速查",
+          icon: "A",
+          keywords: "ascii 码表"
+        },
+        {
+          url: "tools/dev/ascii-art.html",
+          category: "dev",
+          name: "ASCII 艺术",
+          desc: "将文字转换为 ASCII 艺术字体",
+          icon: "▓",
+          keywords: "ascii art 艺术字 文字图案 banner figlet"
+        },
+        {
+          url: "tools/dev/base64.html",
+          category: "dev",
+          name: "Base64 编解码",
+          desc: "Base64 编码与解码，支持文本和文件",
+          icon: "b64",
+          keywords: "base64 编码 解码 encode decode"
+        },
+        {
+          url: "tools/dev/basic-auth-generator.html",
+          category: "dev",
+          name: "Basic Auth 生成器",
+          desc: "生成 HTTP Basic Authentication 头部",
+          icon: "🔑",
+          keywords: "basic auth 认证 authorization http 头"
+        },
+        {
+          url: "tools/dev/box-shadow.html",
+          category: "dev",
+          name: "Box Shadow 生成器",
+          desc: "可视化创建 CSS box-shadow，支持多层阴影和预设样式",
+          icon: "◰",
+          keywords: "box-shadow 阴影 css 生成器 预设 多层"
+        },
+        {
+          url: "tools/dev/chmod-calculator.html",
+          category: "dev",
+          name: "Chmod 计算器",
+          desc: "Linux 文件权限计算，支持数字和符号模式互转",
+          icon: "🔓",
+          keywords: "chmod 权限 linux unix 文件权限 rwx"
+        },
+        {
+          url: "tools/dev/cron-generator.html",
+          category: "dev",
+          name: "Cron 生成器",
+          desc: "可视化生成 Cron 表达式",
+          icon: "⏰",
+          keywords: "cron 定时任务 生成器 调度 scheduler"
+        },
+        {
+          url: "tools/dev/css-formatter.html",
+          category: "dev",
+          name: "CSS 格式化",
+          desc: "CSS 代码格式化和压缩",
+          icon: "🎨",
+          keywords: "css 格式化"
+        },
+        {
+          url: "tools/dev/curl-converter.html",
+          category: "dev",
+          name: "cURL 转换器",
+          desc: "将 cURL 命令转换为各种编程语言代码",
+          icon: "↔️",
+          keywords: "curl 转换器"
+        },
+        {
+          url: "tools/dev/emoji-picker.html",
+          category: "dev",
+          name: "Emoji 选择器",
+          desc: "浏览和复制各种 Emoji 表情符号",
+          icon: "😀",
+          keywords: "emoji 表情 选择器 符号 unicode"
+        },
+        {
+          url: "tools/dev/glob-tester.html",
+          category: "dev",
+          name: "Glob 模式测试",
+          desc: "Glob 模式匹配测试",
+          icon: "*",
+          keywords: "glob 模式测试"
+        },
+        {
+          url: "tools/dev/git-cheatsheet.html",
+          category: "dev",
+          name: "Git 命令速查",
+          desc: "常用 Git 命令速查表",
+          icon: "📚",
+          keywords: "git 命令 速查 cheatsheet commit push pull"
+        },
+        {
+          url: "tools/dev/hash-generator.html",
+          category: "dev",
+          name: "Hash 生成器",
+          desc: "计算文本或文件的 MD5、SHA-1、SHA-256、SHA-512 哈希值",
+          icon: "#",
+          keywords: "hash md5 sha sha1 sha256 sha512 哈希 摘要 校验"
+        },
+        {
+          url: "tools/dev/hex-viewer.html",
+          category: "dev",
+          name: "Hex 查看器",
+          desc: "以十六进制查看文件或文本内容",
+          icon: "0x",
+          keywords: "hex 十六进制 二进制 查看器 文件"
+        },
+        {
+          url: "tools/dev/hmac-generator.html",
+          category: "dev",
+          name: "HMAC 生成器",
+          desc: "生成 HMAC 消息认证码，支持多种哈希算法",
+          icon: "🔏",
+          keywords: "hmac 签名 hash 消息认证 sha256"
+        },
+        {
+          url: "tools/dev/html-entity.html",
+          category: "dev",
+          name: "HTML 实体编解码",
+          desc: "HTML 实体编码与解码，常用实体参考",
+          icon: "&amp;",
+          keywords: "html entity 实体 编码 解码 转义 escape"
+        },
+        {
+          url: "tools/dev/http-status.html",
+          category: "dev",
+          name: "HTTP 状态码参考",
+          desc: "HTTP 状态码速查，包含描述和使用场景",
+          icon: "200",
+          keywords: "http status 状态码 响应码 1xx 2xx 3xx 4xx 5xx"
+        },
+        {
+          url: "tools/dev/i18n-key-generator.html",
+          category: "dev",
+          name: "i18n Key 生成器",
+          desc: "根据文本智能生成国际化 key",
+          icon: "🌐",
+          keywords: "i18n 国际化 key 生成器 翻译 localization"
+        },
+        {
+          url: "tools/dev/ip-converter.html",
+          category: "dev",
+          name: "IP 地址转换器",
+          desc: "IP 地址格式转换，支持点分十进制、整数、二进制等",
+          icon: "🌐",
+          keywords: "ip 地址 转换 十进制 二进制 十六进制"
+        },
+        {
+          url: "tools/dev/json-typescript.html",
+          category: "dev",
+          name: "JSON → TypeScript 类型生成",
+          desc: "JSON 转 TypeScript 类型",
+          icon: "TS",
+          keywords: "json → typescript 类型生成"
+        },
+        {
+          url: "tools/dev/json-formatter.html",
+          category: "dev",
+          name: "JSON 格式化",
+          desc: "JSON 格式化、压缩、校验，支持错误定位和语法高亮",
+          icon: "{}",
+          keywords: "json 格式化 校验 validate format 美化"
+        },
+        {
+          url: "tools/dev/json-to-go.html",
+          category: "dev",
+          name: "JSON 转 Go Struct",
+          desc: "JSON 转 Go Struct",
+          icon: "🐹",
+          keywords: "json 转 go struct"
+        },
+        {
+          url: "tools/dev/json-yaml.html",
+          category: "dev",
+          name: "JSON-YAML 转换",
+          desc: "JSON 与 YAML 格式互转，支持格式化输出",
+          icon: "⇄",
+          keywords: "json yaml 转换 格式化 配置"
+        },
+        {
+          url: "tools/dev/jsonpath-query.html",
+          category: "dev",
+          name: "JSONPath 查询",
+          desc: "使用 JSONPath 表达式查询 JSON 数据",
+          icon: "$.",
+          keywords: "jsonpath json 查询 path 提取 xpath"
+        },
+        {
+          url: "tools/dev/jwt-decoder.html",
+          category: "dev",
+          name: "JWT 解码器",
+          desc: "解码 JWT Token，查看 Header、Payload 和签名信息",
+          icon: "🔓",
+          keywords: "jwt token 解码 decode header payload 认证"
+        },
+        {
+          url: "tools/dev/keycode.html",
+          category: "dev",
+          name: "Keycode 查看器",
+          desc: "获取键盘按键的 KeyCode 值",
+          icon: "⌨️",
+          keywords: "keycode 查看器"
+        },
+        {
+          url: "tools/dev/mime-lookup.html",
+          category: "dev",
+          name: "MIME 类型查询",
+          desc: "查询文件扩展名对应的 MIME 类型",
+          icon: "📄",
+          keywords: "mime 类型 扩展名 content-type 文件类型"
+        },
+        {
+          url: "tools/dev/otp-generator.html",
+          category: "dev",
+          name: "OTP 验证码生成器",
+          desc: "生成一次性密码 (OTP/TOTP)",
+          icon: "🔑",
+          keywords: "otp 验证码生成器"
+        },
+        {
+          url: "tools/dev/protobuf-decoder.html",
+          category: "dev",
+          name: "Protobuf 解码器",
+          desc: "解码 Protobuf 二进制数据，无需 schema 定义",
+          icon: "◈",
+          keywords: "protobuf 解码 proto buffer 二进制"
+        },
+        {
+          url: "tools/dev/rsa-keygen.html",
+          category: "dev",
+          name: "RSA 密钥对生成器",
+          desc: "生成 RSA 公私钥对",
+          icon: "🔐",
+          keywords: "rsa 密钥对生成器"
+        },
+        {
+          url: "tools/dev/semver-compare.html",
+          category: "dev",
+          name: "Semver 比较器",
+          desc: "语义化版本号比较和验证",
+          icon: "🏷️",
+          keywords: "semver 比较器"
+        },
+        {
+          url: "tools/dev/slug-generator.html",
+          category: "dev",
+          name: "Slug 生成器",
+          desc: "生成 URL 友好的 slug 字符串",
+          icon: "🔗",
+          keywords: "slug url 友好 seo 链接 生成"
+        },
+        {
+          url: "tools/dev/sql-formatter.html",
+          category: "dev",
+          name: "SQL 格式化",
+          desc: "SQL 语句格式化和美化",
+          icon: "📊",
+          keywords: "sql 格式化"
+        },
+        {
+          url: "tools/dev/toml-yaml-json.html",
+          category: "dev",
+          name: "TOML/YAML/JSON 转换器",
+          desc: "TOML、YAML、JSON 配置格式互相转换",
+          icon: "⇆",
+          keywords: "toml yaml json 配置 转换 格式"
+        },
+        {
+          url: "tools/dev/unicode-lookup.html",
+          category: "dev",
+          name: "Unicode 查询",
+          desc: "Unicode 字符查询和信息",
+          icon: "🔤",
+          keywords: "unicode 查询"
+        },
+        {
+          url: "tools/dev/unicode-converter.html",
+          category: "dev",
+          name: "Unicode 转换器",
+          desc: "Unicode 编解码，支持 \\uXXXX、HTML 实体等格式",
+          icon: "U+",
+          keywords: "unicode 编码 解码 utf8 码点 字符"
+        },
+        {
+          url: "tools/dev/url-codec.html",
+          category: "dev",
+          name: "URL 编解码",
+          desc: "URL 编码与解码，支持完整 URL 或组件",
+          icon: "%",
+          keywords: "url 编码 解码 encode decode uri"
+        },
+        {
+          url: "tools/dev/url-parser.html",
+          category: "dev",
+          name: "URL 解析器",
+          desc: "解析 URL 各组成部分，提取查询参数",
+          icon: "🔗",
+          keywords: "url 解析 parse uri 参数 query"
+        },
+        {
+          url: "tools/dev/xml-formatter.html",
+          category: "dev",
+          name: "XML 格式化",
+          desc: "XML 格式化和验证",
+          icon: "📄",
+          keywords: "xml 格式化"
+        },
+        {
+          url: "tools/dev/xml-json.html",
+          category: "dev",
+          name: "XML ⇄ JSON 转换",
+          desc: "XML 与 JSON 格式互转",
+          icon: "⇆",
+          keywords: "xml json 转换 convert 格式"
+        },
+        {
+          url: "tools/dev/flexbox-playground.html",
+          category: "dev",
+          name: "Flexbox 可视化编辑器",
+          desc: "可视化调整 Flexbox 布局属性，实时预览效果",
+          icon: "📦",
+          keywords: "flexbox css 布局 layout flex 可视化 playground"
+        },
+        {
+          url: "tools/dev/color-blindness.html",
+          category: "dev",
+          name: "色盲模拟器",
+          desc: "模拟不同类型色盲用户看到的颜色效果",
+          icon: "👁",
+          keywords: "色盲 模拟器 colorblind simulator accessibility 无障碍 a11y"
+        },
+        {
+          url: "tools/dev/css-animation.html",
+          category: "dev",
+          name: "CSS 动画生成器",
+          desc: "可视化创建 CSS 关键帧动画，一键生成代码",
+          icon: "✨",
+          keywords: "css animation 动画 keyframes 关键帧 生成器"
+        },
+        {
+          url: "tools/dev/gitignore-generator.html",
+          category: "dev",
+          name: ".gitignore 生成器",
+          desc: "选择编程语言和框架，快速生成 .gitignore 文件",
+          icon: "📄",
+          keywords: "gitignore git 忽略 生成器 node python java go rust php"
+        },
+        {
+          url: "tools/dev/punycode.html",
+          category: "dev",
+          name: "Punycode 转换器",
+          desc: "国际化域名 (IDN) 与 Punycode 编码互转",
+          icon: "🌐",
+          keywords: "punycode idn 国际化域名 中文域名 unicode ascii xn--"
+        },
+        {
+          url: "tools/dev/charset-converter.html",
+          category: "dev",
+          name: "字符集转换器",
+          desc: "文本编码转换，支持 UTF-8/16、Hex、URL 编码等格式",
+          icon: "🔤",
+          keywords: "字符集 编码 utf8 utf16 unicode hex 转换"
+        },
+        {
+          url: "tools/dev/html-template.html",
+          category: "dev",
+          name: "HTML 模板生成器",
+          desc: "生成 HTML5 页面模板，支持多种布局和 CSS 框架",
+          icon: "📄",
+          keywords: "html 模板 template 骨架 landing page 表单 dashboard 邮件"
+        },
+        {
+          url: "tools/dev/readme-generator.html",
+          category: "dev",
+          name: "README 生成器",
+          desc: "快速生成项目 README.md，支持徽章、特性、安装说明等",
+          icon: "📝",
+          keywords: "readme markdown 文档 徽章 badge 项目说明"
+        },
+        {
+          url: "tools/dev/license-generator.html",
+          category: "dev",
+          name: "License 生成器",
+          desc: "生成开源许可证文件，支持 MIT、Apache、GPL 等协议",
+          icon: "📜",
+          keywords: "license 许可证 开源 mit apache gpl bsd"
+        },
+        {
+          url: "tools/dev/string-builder.html",
+          category: "dev",
+          name: "字符串拼接器",
+          desc: "可视化字符串拼接工具，支持拖拽排序和分隔符设置",
+          icon: "🔗",
+          keywords: "字符串 拼接 string builder 连接 分隔符"
+        },
+        {
+          url: "tools/dev/regex-explainer.html",
+          category: "dev",
+          name: "正则可视化解释器",
+          desc: "可视化解析正则表达式，逐步解释每个部分的含义",
+          icon: "🔍",
+          keywords: "正则 regex 可视化 解释 分析 学习 教程"
+        },
+        {
+          url: "tools/dev/css-grid-generator.html",
+          category: "dev",
+          name: "CSS Grid 生成器 | 在线工具",
+          desc: "CSS Grid 生成器 | 在线工具",
+          icon: "🔧",
+          keywords: "css grid 生成器 | 在线工具"
+        },
+        {
+          url: "tools/dev/diff-viewer.html",
+          category: "dev",
+          name: "Git Diff 查看器",
+          desc: "解析并美化显示 Git diff 输出，支持文件统计",
+          icon: "📊",
+          keywords: "diff git 对比 查看器 unified patch 代码变更"
+        },
+        {
+          url: "tools/dev/color-mixer.html",
+          category: "dev",
+          name: "颜色混合器",
+          desc: "两种颜色混合工具，支持多种混合模式和比例调节",
+          icon: "🎨",
+          keywords: "颜色 混合 color mixer rgb hsl 正片叠底 滤色"
+        },
+        {
+          url: "tools/dev/json-schema-validator.html",
+          category: "dev",
+          name: "JSON Schema 验证器",
+          desc: "JSON Schema 验证器",
+          icon: "📋",
+          keywords: "json schema 验证器"
+        },
+        {
+          url: "tools/dev/css-filter-generator.html",
+          category: "dev",
+          name: "CSS Filter 生成器",
+          desc: "可视化调整 CSS filter 属性，支持预设效果和对比预览",
+          icon: "🎨",
+          keywords: "css filter 滤镜 亮度 对比度 模糊 色相 饱和度"
+        },
+        {
+          url: "tools/dev/jsonpath-tester.html",
+          category: "dev",
+          name: "JSONPath 测试器",
+          desc: "在线测试 JSONPath 表达式，提取 JSON 数据",
+          icon: "🔎",
+          keywords: "jsonpath json 查询 测试 提取数据 xpath"
+        },
+        {
+          url: "tools/dev/gradient-generator.html",
+          category: "dev",
+          name: "CSS 渐变生成器",
+          desc: "可视化生成 CSS 渐变背景，支持多种渐变类型",
+          icon: "🎨",
+          keywords: "css gradient 渐变 背景 linear radial conic"
+        },
+        {
+          url: "tools/dev/regex-visualizer.html",
+          category: "dev",
+          name: "正则表达式可视化器",
+          desc: "正则表达式可视化器",
+          icon: "🔧",
+          keywords: "正则表达式可视化器"
+        },
+        {
+          url: "tools/dev/chart-generator.html",
+          category: "dev",
+          name: "数据图表生成器",
+          desc: "数据图表生成器",
+          icon: "🔧",
+          keywords: "数据图表生成器"
+        },
+        {
+          url: "tools/dev/code-screenshot.html",
+          category: "dev",
+          name: "代码截图生成器",
+          desc: "代码截图生成器",
+          icon: "📸",
+          keywords: "代码截图生成器"
+        },
+        {
+          url: "tools/dev/cron-parser.html",
+          category: "dev",
+          name: "Cron 表达式解析器",
+          desc: "Cron 表达式解析器",
+          icon: "🔧",
+          keywords: "cron 表达式解析器"
+        },
+        {
+          url: "tools/dev/crontab-generator.html",
+          category: "dev",
+          name: "Crontab 生成器",
+          desc: "Crontab 生成器",
+          icon: "🔧",
+          keywords: "crontab 生成器"
+        },
+        {
+          url: "tools/dev/css-minifier.html",
+          category: "dev",
+          name: "CSS 压缩/美化工具",
+          desc: "CSS 压缩/美化工具",
+          icon: "🎨",
+          keywords: "css 压缩/美化工具"
+        },
+        {
+          url: "tools/dev/css-unit-converter.html",
+          category: "dev",
+          name: "CSS 单位转换器",
+          desc: "CSS 单位转换器",
+          icon: "🔧",
+          keywords: "css 单位转换器"
+        },
+        {
+          url: "tools/dev/cubic-bezier.html",
+          category: "dev",
+          name: "Cubic Bezier 编辑器",
+          desc: "Cubic Bezier 编辑器",
+          icon: "🔧",
+          keywords: "cubic bezier 编辑器"
+        },
+        {
+          url: "tools/dev/docker-compose-generator.html",
+          category: "dev",
+          name: "Docker Compose 生成器 | 在线工具",
+          desc: "Docker Compose 生成器 | 在线工具",
+          icon: "🐳",
+          keywords: "docker compose 生成器 | 在线工具"
+        },
+        {
+          url: "tools/dev/dockerfile-generator.html",
+          category: "dev",
+          name: "Dockerfile 生成器",
+          desc: "Dockerfile 生成器",
+          icon: "🔧",
+          keywords: "dockerfile 生成器"
+        },
+        {
+          url: "tools/dev/excel-viewer.html",
+          category: "dev",
+          name: "Excel 预览器",
+          desc: "Excel 预览器",
+          icon: "🔧",
+          keywords: "excel 预览器"
+        },
+        {
+          url: "tools/dev/favicon-checker.html",
+          category: "dev",
+          name: "Favicon 检测器",
+          desc: "Favicon 检测器",
+          icon: "🔧",
+          keywords: "favicon 检测器"
+        },
+        {
+          url: "tools/dev/github-actions-generator.html",
+          category: "dev",
+          name: "GitHub Actions 生成器",
+          desc: "GitHub Actions 生成器",
+          icon: "🔧",
+          keywords: "github actions 生成器"
+        },
+        {
+          url: "tools/dev/html-preview.html",
+          category: "dev",
+          name: "HTML 实时预览",
+          desc: "HTML 实时预览",
+          icon: "🖼",
+          keywords: "html 实时预览"
+        },
+        {
+          url: "tools/dev/html-table-generator.html",
+          category: "dev",
+          name: "HTML 表格生成器",
+          desc: "HTML 表格生成器",
+          icon: "🔧",
+          keywords: "html 表格生成器"
+        },
+        {
+          url: "tools/dev/http-client.html",
+          category: "dev",
+          name: "HTTP 请求测试",
+          desc: "HTTP 请求测试",
+          icon: "🌐",
+          keywords: "http 请求测试"
+        },
+        {
+          url: "tools/dev/js-playground.html",
+          category: "dev",
+          name: "JavaScript 在线运行",
+          desc: "JavaScript 在线运行",
+          icon: "🔧",
+          keywords: "javascript 在线运行"
+        },
+        {
+          url: "tools/dev/json-schema-generator.html",
+          category: "dev",
+          name: "JSON Schema 生成器",
+          desc: "JSON Schema 生成器",
+          icon: "🔧",
+          keywords: "json schema 生成器"
+        },
+        {
+          url: "tools/dev/json-tree.html",
+          category: "dev",
+          name: "JSON 树形查看器",
+          desc: "JSON 可视化树形结构查看器，支持折叠展开和路径显示",
+          icon: "🌳",
+          keywords: "json tree viewer 树形 可视化 折叠 展开 路径"
+        },
+        {
+          url: "tools/dev/nginx-generator.html",
+          category: "dev",
+          name: "Nginx 配置生成器 | 在线工具",
+          desc: "Nginx 配置生成器 | 在线工具",
+          icon: "🔧",
+          keywords: "nginx 配置生成器 | 在线工具"
+        },
+        {
+          url: "tools/dev/regex-generator.html",
+          category: "dev",
+          name: "正则表达式生成器",
+          desc: "正则表达式生成器",
+          icon: "🔧",
+          keywords: "正则表达式生成器"
+        },
+        {
+          url: "tools/dev/responsive-preview.html",
+          category: "dev",
+          name: "响应式预览",
+          desc: "响应式预览",
+          icon: "📱",
+          keywords: "响应式预览"
+        },
+        {
+          url: "tools/dev/sql-converter.html",
+          category: "dev",
+          name: "SQL 转换器",
+          desc: "SQL 转换器",
+          icon: "🔀",
+          keywords: "sql 转换器"
+        },
+        {
+          url: "tools/dev/tailwind-config-generator.html",
+          category: "dev",
+          name: "Tailwind CSS 配置生成器",
+          desc: "Tailwind CSS 配置生成器",
+          icon: "🔧",
+          keywords: "tailwind css 配置生成器"
+        },
+        {
+          url: "tools/dev/color-palette-generator.html",
+          category: "dev",
+          name: "调色板生成器",
+          desc: "基于色彩理论生成和谐配色方案",
+          icon: "🎨",
+          keywords: "color palette 调色板 配色 互补色 颜色搭配"
+        },
+        {
+          url: "tools/dev/html-entities.html",
+          category: "dev",
+          name: "HTML 实体参考",
+          desc: "HTML 实体字符参考表，支持搜索和复制",
+          icon: "📋",
+          keywords: "html entity 实体 特殊字符 转义"
+        },
+        {
+          url: "tools/dev/json-to-typescript.html",
+          category: "dev",
+          name: "JSON 转 TypeScript",
+          desc: "将 JSON 数据转换为 TypeScript 接口定义",
+          icon: "🔷",
+          keywords: "json typescript interface 类型定义 转换"
+        },
+        {
+          url: "tools/dev/keyboard-tester.html",
+          category: "dev",
+          name: "键盘测试器",
+          desc: "测试键盘按键，显示按键事件详细信息",
+          icon: "⌨️",
+          keywords: "keyboard key 键盘 按键 keycode 测试"
+        },
+        {
+          url: "tools/dev/css-animation-generator.html",
+          category: "dev",
+          name: "CSS 动画生成器",
+          desc: "可视化生成 CSS 动画和关键帧代码",
+          icon: "🎬",
+          keywords: "css animation keyframes 动画 关键帧 生成器"
+        },
+        {
+          url: "tools/dev/browser-storage-viewer.html",
+          category: "dev",
+          name: "浏览器存储查看器",
+          desc: "查看和管理浏览器 LocalStorage、SessionStorage 和 Cookies",
+          icon: "🗄️",
+          keywords: "localstorage sessionstorage cookie 存储 浏览器"
+        },
+        {
+          url: "tools/dev/json-path-editor.html",
+          category: "dev",
+          name: "JSON 路径编辑器",
+          desc: "通过路径查询、编辑和导航 JSON 数据",
+          icon: "📍",
+          keywords: "json path 路径 编辑 查询 导航"
+        },
+        {
+          url: "tools/dev/css-clip-path.html",
+          category: "dev",
+          name: "CSS Clip-path 生成器",
+          desc: "CSS Clip-path 生成器",
+          icon: "🔧",
+          keywords: "css clip-path 生成器"
+        },
+        {
+          url: "tools/dev/css-box-shadow.html",
+          category: "dev",
+          name: "CSS 盒子阴影生成器",
+          desc: "可视化生成 CSS box-shadow 阴影效果，支持多层阴影",
+          icon: "🎨",
+          keywords: "css box-shadow 阴影 生成器 可视化"
+        },
+        {
+          url: "tools/dev/css-filter.html",
+          category: "dev",
+          name: "CSS 滤镜生成器",
+          desc: "CSS 滤镜生成器",
+          icon: "🔧",
+          keywords: "css 滤镜生成器"
+        },
+        {
+          url: "tools/dev/json-minify.html",
+          category: "dev",
+          name: "JSON 压缩",
+          desc: "压缩 JSON 去除空格和换行",
+          icon: "📦",
+          keywords: "json minify compress 压缩 最小化"
+        },
+        {
+          url: "tools/dev/js-minify.html",
+          category: "dev",
+          name: "JavaScript 压缩",
+          desc: "压缩 JavaScript 代码",
+          icon: "📦",
+          keywords: "javascript js minify compress 压缩 最小化"
+        },
+        {
+          url: "tools/dev/html-minify.html",
+          category: "dev",
+          name: "HTML 压缩",
+          desc: "压缩 HTML 代码",
+          icon: "📦",
+          keywords: "html minify compress 压缩 最小化"
+        },
+        {
+          url: "tools/dev/meta-viewport.html",
+          category: "dev",
+          name: "Viewport Meta 生成器",
+          desc: "生成移动端 Viewport meta 标签",
+          icon: "📱",
+          keywords: "viewport meta 视口 响应式 移动端"
+        },
+        {
+          url: "tools/dev/api-mock.html",
+          category: "dev",
+          name: "API 响应模拟器",
+          desc: "API 响应模拟器",
+          icon: "🔧",
+          keywords: "api 响应模拟器"
+        },
+        {
+          url: "tools/dev/css-sprites.html",
+          category: "dev",
+          name: "CSS雪碧图生成器",
+          desc: "合并图片生成雪碧图",
+          icon: "🎨",
+          keywords: "css sprite 雪碧图 合并 图片 sprites"
+        },
+        {
+          url: "tools/dev/env-editor.html",
+          category: "dev",
+          name: ".env 文件编辑器",
+          desc: ".env 文件编辑器",
+          icon: "🔧",
+          keywords: ".env 文件编辑器"
+        },
+        {
+          url: "tools/dev/graphql-playground.html",
+          category: "dev",
+          name: "GraphQL Playground",
+          desc: "GraphQL查询测试工具",
+          icon: "⬡",
+          keywords: "graphql query mutation playground api"
+        },
+        {
+          url: "tools/dev/htaccess-nginx.html",
+          category: "dev",
+          name: "htaccess转Nginx",
+          desc: "Apache htaccess转Nginx配置",
+          icon: "🔄",
+          keywords: "htaccess nginx 转换 apache 配置"
+        },
+        {
+          url: "tools/dev/js-ast-viewer.html",
+          category: "dev",
+          name: "JavaScript AST查看器",
+          desc: "解析JavaScript代码的抽象语法树",
+          icon: "🌳",
+          keywords: "javascript ast 语法树 解析 parser"
+        },
+        {
+          url: "tools/dev/js-obfuscator.html",
+          category: "dev",
+          name: "JS代码混淆",
+          desc: "混淆JavaScript代码",
+          icon: "🔐",
+          keywords: "javascript 混淆 obfuscator 加密 保护"
+        },
+        {
+          url: "tools/dev/openapi-viewer.html",
+          category: "dev",
+          name: "OpenAPI/Swagger查看器",
+          desc: "解析展示OpenAPI文档",
+          icon: "📄",
+          keywords: "openapi swagger api 文档 查看器"
+        },
+        {
+          url: "tools/dev/package-json-editor.html",
+          category: "dev",
+          name: "package.json编辑器",
+          desc: "可视化编辑package.json",
+          icon: "📦",
+          keywords: "package.json npm 编辑器 可视化"
+        },
+        {
+          url: "tools/dev/sql-playground.html",
+          category: "dev",
+          name: "SQL在线执行器",
+          desc: "在浏览器中执行SQL查询",
+          icon: "🗄️",
+          keywords: "sql sqlite 数据库 查询 在线"
+        },
+        {
+          url: "tools/dev/svg-optimizer.html",
+          category: "dev",
+          name: "SVG优化器",
+          desc: "优化压缩SVG文件",
+          icon: "🎨",
+          keywords: "svg 优化 压缩 optimizer svgo"
+        },
+        {
+          url: "tools/dev/tsconfig-editor.html",
+          category: "dev",
+          name: "tsconfig编辑器",
+          desc: "可视化编辑tsconfig.json",
+          icon: "🔷",
+          keywords: "typescript tsconfig 配置 编辑器"
+        },
+        {
+          url: "tools/dev/webhook-tester.html",
+          category: "dev",
+          name: "Webhook测试器",
+          desc: "发送HTTP请求测试Webhook",
+          icon: "🔗",
+          keywords: "webhook http 测试 请求 api"
+        },
+        {
+          url: "tools/dev/xpath-tester.html",
+          category: "dev",
+          name: "XPath 测试器",
+          desc: "XPath 测试器",
+          icon: "🔧",
+          keywords: "xpath 测试器"
+        },
+        {
+          url: "tools/dev/neumorphism.html",
+          category: "dev",
+          name: "Neumorphism 生成器",
+          desc: "Neumorphism 软 UI 风格 CSS 代码生成器",
+          icon: "◐",
+          keywords: "neumorphism 新拟态 软ui soft ui css 阴影 shadow 生成器"
+        },
+        {
+          url: "tools/dev/glassmorphism.html",
+          category: "dev",
+          name: "Glassmorphism 生成器",
+          desc: "Glassmorphism 毛玻璃效果 CSS 代码生成器",
+          icon: "🪟",
+          keywords: "glassmorphism 毛玻璃 frosted glass css 模糊 blur backdrop-filter"
+        },
+        {
+          url: "tools/dev/code-stats.html",
+          category: "dev",
+          name: "代码统计器",
+          desc: "代码统计器",
+          icon: "🔧",
+          keywords: "代码统计器"
+        },
+        {
+          url: "tools/dev/color-names.html",
+          category: "dev",
+          name: "颜色命名查询",
+          desc: "颜色命名查询",
+          icon: "🎨",
+          keywords: "颜色命名查询"
+        },
+        {
+          url: "tools/dev/css-grid.html",
+          category: "dev",
+          name: "CSS Grid 生成器",
+          desc: "CSS Grid 生成器",
+          icon: "🔧",
+          keywords: "css grid 生成器"
+        },
+        {
+          url: "tools/dev/css-selector-test.html",
+          category: "dev",
+          name: "CSS 选择器测试器",
+          desc: "CSS 选择器测试器",
+          icon: "🔧",
+          keywords: "css 选择器测试器"
+        },
+        {
+          url: "tools/dev/css-text-shadow.html",
+          category: "dev",
+          name: "CSS Text Shadow 生成器",
+          desc: "CSS Text Shadow 生成器",
+          icon: "🔧",
+          keywords: "css text shadow 生成器"
+        },
+        {
+          url: "tools/dev/css-transform.html",
+          category: "dev",
+          name: "CSS Transform 生成器",
+          desc: "CSS Transform 生成器",
+          icon: "🔧",
+          keywords: "css transform 生成器"
+        },
+        {
+          url: "tools/dev/docker-compose-gen.html",
+          category: "dev",
+          name: "Docker Compose 生成器",
+          desc: "Docker Compose 生成器",
+          icon: "🔧",
+          keywords: "docker compose 生成器"
+        },
+        {
+          url: "tools/dev/docker-compose.html",
+          category: "dev",
+          name: "Docker Compose 生成器",
+          desc: "Docker Compose 生成器",
+          icon: "🔧",
+          keywords: "docker compose 生成器"
+        },
+        {
+          url: "tools/dev/graphql-builder.html",
+          category: "dev",
+          name: "GraphQL 查询构建器",
+          desc: "GraphQL 查询构建器",
+          icon: "🔧",
+          keywords: "graphql 查询构建器"
+        },
+        {
+          url: "tools/dev/json-schema.html",
+          category: "dev",
+          name: "JSON Schema 生成器",
+          desc: "JSON Schema 生成器",
+          icon: "🔧",
+          keywords: "json schema 生成器"
+        },
+        {
+          url: "tools/dev/json-to-sql.html",
+          category: "dev",
+          name: "JSON 转 SQL",
+          desc: "JSON 转 SQL",
+          icon: "🔧",
+          keywords: "json 转 sql"
+        },
+        {
+          url: "tools/dev/nginx-config.html",
+          category: "dev",
+          name: "Nginx 配置生成器",
+          desc: "Nginx 配置生成器",
+          icon: "🔧",
+          keywords: "nginx 配置生成器"
+        },
+        {
+          url: "tools/dev/package-json-gen.html",
+          category: "dev",
+          name: "package.json 生成器",
+          desc: "package.json 生成器",
+          icon: "🔧",
+          keywords: "package.json 生成器"
+        },
+        {
+          url: "tools/dev/shortcuts-cheatsheet.html",
+          category: "dev",
+          name: "快捷键速查表",
+          desc: "快捷键速查表",
+          icon: "🔧",
+          keywords: "快捷键速查表"
+        },
+        {
+          url: "tools/dev/sql-to-mongo.html",
+          category: "dev",
+          name: "SQL 转 MongoDB 查询",
+          desc: "SQL 转 MongoDB 查询",
+          icon: "🔧",
+          keywords: "sql 转 mongodb 查询"
+        },
+        {
+          url: "tools/dev/svg-path-editor.html",
+          category: "dev",
+          name: "SVG 路径编辑器",
+          desc: "SVG 路径编辑器",
+          icon: "🔧",
+          keywords: "svg 路径编辑器"
+        },
+        {
+          url: "tools/dev/tailwind-lookup.html",
+          category: "dev",
+          name: "Tailwind CSS 查询器",
+          desc: "Tailwind CSS 查询器",
+          icon: "🔧",
+          keywords: "tailwind css 查询器"
+        },
+        {
+          url: "tools/dev/editorconfig-gen.html",
+          category: "dev",
+          name: "editorconfig 生成器",
+          desc: "editorconfig 生成器",
+          icon: "⚡",
+          keywords: "editorconfig gen editorconfig 生成器"
+        },
+        {
+          url: "tools/dev/json-schema-gen.html",
+          category: "dev",
+          name: "JSON Schema 生成器",
+          desc: "JSON Schema 生成器",
+          icon: "📋",
+          keywords: "json schema gen json schema 生成器"
+        },
+        {
+          url: "tools/dev/markdown-to-html.html",
+          category: "dev",
+          name: "Markdown 转 HTML 转换器",
+          desc: "Markdown 转 HTML 转换器",
+          icon: "⚡",
+          keywords: "markdown to html markdown 转 html 转换器"
+        },
+        {
+          url: "tools/dev/progress-generator.html",
+          category: "dev",
+          name: "进度条生成器",
+          desc: "进度条生成器",
+          icon: "📊",
+          keywords: "progress generator 进度条生成器"
+        },
+        {
+          url: "tools/dev/sse-test.html",
+          category: "dev",
+          name: "SSE测试客户端",
+          desc: "SSE测试客户端",
+          icon: "⚡",
+          keywords: "sse test sse测试客户端"
+        },
+        {
+          url: "tools/dev/html-to-jsx.html",
+          category: "dev",
+          name: "HTML 转 JSX/React 转换器",
+          desc: "HTML 转 JSX/React 转换器",
+          icon: "⚡",
+          keywords: "html to jsx html 转 jsx/react 转换器"
+        },
+        {
+          url: "tools/dev/js-minifier.html",
+          category: "dev",
+          name: "JavaScript 代码压缩器",
+          desc: "JavaScript 代码压缩器",
+          icon: "⚡",
+          keywords: "js minifier javascript 代码压缩器"
+        },
+        {
+          url: "tools/dev/websocket-test.html",
+          category: "dev",
+          name: "WebSocket测试客户端",
+          desc: "WebSocket测试客户端",
+          icon: "⚡",
+          keywords: "websocket test websocket测试客户端"
+        },
+        {
+          url: "tools/dev/readme-preview.html",
+          category: "dev",
+          name: "README.md 实时预览器",
+          desc: "README.md 实时预览器",
+          icon: "⚡",
+          keywords: "readme preview readme.md 实时预览器"
+        },
+        {
+          url: "tools/dev/divider-generator.html",
+          category: "dev",
+          name: "分隔线生成器",
+          desc: "分隔线生成器",
+          icon: "⚡",
+          keywords: "divider generator 分隔线生成器"
+        },
+        {
+          url: "tools/dev/table-border.html",
+          category: "dev",
+          name: "表格线生成器",
+          desc: "表格线生成器",
+          icon: "📊",
+          keywords: "table border 表格线生成器"
+        },
+        {
+          url: "tools/dev/math-symbols.html",
+          category: "dev",
+          name: "数学符号大全",
+          desc: "数学符号大全",
+          icon: "⚡",
+          keywords: "math symbols 数学符号大全"
+        },
+        {
+          url: "tools/dev/symbols-table.html",
+          category: "dev",
+          name: "特殊符号大全",
+          desc: "特殊符号大全",
+          icon: "✨",
+          keywords: "symbols table 特殊符号大全"
+        },
+        {
+          url: "tools/dev/changelog-gen.html",
+          category: "dev",
+          name: "CHANGELOG 生成器",
+          desc: "CHANGELOG 生成器",
+          icon: "⚡",
+          keywords: "changelog gen changelog 生成器"
+        },
+        {
+          url: "tools/dev/json-minifier.html",
+          category: "dev",
+          name: "JSON 压缩和美化器",
+          desc: "JSON 压缩和美化器",
+          icon: "⚡",
+          keywords: "json minifier json 压缩和美化器"
+        },
+        {
+          url: "tools/dev/arrow-generator.html",
+          category: "dev",
+          name: "箭头符号生成器",
+          desc: "箭头符号生成器",
+          icon: "➡",
+          keywords: "arrow generator 箭头符号生成器"
+        },
+        // 文本工具
+        {
+          url: "tools/text/whitespace-cleaner.html",
+          category: "text",
+          name: "空白字符清理",
+          desc: "清理多余空白、空行、行首尾空格",
+          icon: "␣",
+          keywords: "空白 空格 tab 换行 清理 trim"
+        },
+        {
+          url: "tools/text/roman-numeral.html",
+          category: "text",
+          name: "罗马数字转换器",
+          desc: "罗马数字转换",
+          icon: "Ⅳ",
+          keywords: "罗马数字转换器"
+        },
+        {
+          url: "tools/text/morse-code.html",
+          category: "text",
+          name: "摩尔斯电码",
+          desc: "文本与摩尔斯电码互转，支持音频播放",
+          icon: "·—",
+          keywords: "摩尔斯 morse 电码 点划 音频"
+        },
+        {
+          url: "tools/text/pangu-spacing.html",
+          category: "text",
+          name: "盘古之白",
+          desc: "自动在中英文之间添加空格，优化排版",
+          icon: "盘",
+          keywords: "盘古 中英文 空格 排版 pangu spacing"
+        },
+        {
+          url: "tools/text/text-diff.html",
+          category: "text",
+          name: "文本 Diff",
+          desc: "文本差异对比，左右并排显示，行内差异高亮",
+          icon: "±",
+          keywords: "diff 对比 比较 差异 文本"
+        },
+        {
+          url: "tools/text/case-converter.html",
+          category: "text",
+          name: "文本大小写转换",
+          desc: "文本大小写转换",
+          icon: "Aa",
+          keywords: "文本大小写转换"
+        },
+        {
+          url: "tools/text/text-cipher.html",
+          category: "text",
+          name: "文本加密/解密",
+          desc: "多种古典加密算法：凯撒、ROT13、栅栏等",
+          icon: "🔐",
+          keywords: "加密 解密 密码 caesar rot13 cipher 编码"
+        },
+        {
+          url: "tools/text/text-sort.html",
+          category: "text",
+          name: "文本排序",
+          desc: "按字母、数字、长度等方式排序文本行",
+          icon: "↕",
+          keywords: "排序 sort 字母 数字 长度 随机"
+        },
+        {
+          url: "tools/text/text-dedup.html",
+          category: "text",
+          name: "文本去重",
+          desc: "去除重复行，支持保持顺序和忽略大小写",
+          icon: "⊖",
+          keywords: "去重 重复 行 unique dedup"
+        },
+        {
+          url: "tools/text/text-randomizer.html",
+          category: "text",
+          name: "文本随机化工具",
+          desc: "文本随机打乱",
+          icon: "🎲",
+          keywords: "文本随机化工具"
+        },
+        {
+          url: "tools/text/text-stats.html",
+          category: "text",
+          name: "文本统计增强版",
+          desc: "文本统计分析",
+          icon: "📊",
+          keywords: "文本统计增强版"
+        },
+        {
+          url: "tools/text/line-sorter.html",
+          category: "text",
+          name: "行排序工具",
+          desc: "按字母、数字或自定义规则排序文本行",
+          icon: "⇅",
+          keywords: "行 排序 sort 升序 降序 去重"
+        },
+        {
+          url: "tools/text/string-escape.html",
+          category: "text",
+          name: "字符串转义",
+          desc: "字符串转义和反转义",
+          icon: "\\",
+          keywords: "字符串转义"
+        },
+        {
+          url: "tools/text/word-counter.html",
+          category: "text",
+          name: "字数统计",
+          desc: "统计字符、单词、句子、段落数量",
+          icon: "Aa",
+          keywords: "字数 统计 word count 字符"
+        },
+        {
+          url: "tools/text/csv-json.html",
+          category: "text",
+          name: "CSV ⇄ JSON 转换",
+          desc: "CSV 与 JSON 互转",
+          icon: "📊",
+          keywords: "csv ⇄ json 转换"
+        },
+        {
+          url: "tools/text/lorem-ipsum.html",
+          category: "text",
+          name: "Lorem Ipsum 生成器",
+          desc: "生成占位文本，支持段落、句子、单词模式",
+          icon: "La",
+          keywords: "lorem ipsum 占位文本 假文 生成"
+        },
+        {
+          url: "tools/text/markdown-preview.html",
+          category: "text",
+          name: "Markdown 预览",
+          desc: "实时 Markdown 预览，支持 GFM 语法，可导出 HTML",
+          icon: "M↓",
+          keywords: "markdown md 预览 渲染 gfm"
+        },
+        {
+          url: "tools/text/nato-alphabet.html",
+          category: "text",
+          name: "NATO 字母表",
+          desc: "NATO 音标字母表转换",
+          icon: "🅰️",
+          keywords: "nato 字母表"
+        },
+        {
+          url: "tools/text/slugify.html",
+          category: "text",
+          name: "Slugify 工具",
+          desc: "生成 URL slug",
+          icon: "🔗",
+          keywords: "slugify 工具"
+        },
+        {
+          url: "tools/text/html-markdown.html",
+          category: "text",
+          name: "HTML ⇄ Markdown 转换",
+          desc: "HTML 与 Markdown 双向转换，支持表格、代码块、链接等",
+          icon: "⇄",
+          keywords: "html markdown 转换 converter 格式 convert"
+        },
+        {
+          url: "tools/text/markdown-table.html",
+          category: "text",
+          name: "Markdown 表格生成器",
+          desc: "可视化编辑 Markdown 表格，支持导入 CSV 数据",
+          icon: "📊",
+          keywords: "markdown 表格 table csv excel 生成器 可视化"
+        },
+        {
+          url: "tools/text/text-compare.html",
+          category: "text",
+          name: "文本对比增强版",
+          desc: "增强版文本对比，支持分栏/统一视图，忽略大小写和空白",
+          icon: "📝",
+          keywords: "文本 对比 diff 比较 差异 相似度"
+        },
+        {
+          url: "tools/text/template-filler.html",
+          category: "text",
+          name: "文本模板填充器",
+          desc: "文本模板变量填充，支持批量生成和 CSV 导入",
+          icon: "📋",
+          keywords: "模板 填充 变量 占位符 批量生成 邮件"
+        },
+        {
+          url: "tools/text/reading-time.html",
+          category: "text",
+          name: "阅读时间估算",
+          desc: "估算文章阅读时间，支持中英文混合统计",
+          icon: "📖",
+          keywords: "阅读时间 reading time 字数统计 估算 中英文"
+        },
+        {
+          url: "tools/text/frequency-analyzer.html",
+          category: "text",
+          name: "文本频率分析器",
+          desc: "分析文本字符/词频分布，支持 N-gram 和词云可视化",
+          icon: "📊",
+          keywords: "频率 统计 字符 词频 ngram 分析 信息熵"
+        },
+        {
+          url: "tools/text/chinese-converter.html",
+          category: "text",
+          name: "中文简繁转换器",
+          desc: "中文简繁转换器",
+          icon: "🔄",
+          keywords: "中文简繁转换器"
+        },
+        {
+          url: "tools/text/emoji-search.html",
+          category: "text",
+          name: "Emoji 搜索器",
+          desc: "Emoji 搜索器",
+          icon: "😀",
+          keywords: "emoji 搜索器"
+        },
+        {
+          url: "tools/text/markdown-editor.html",
+          category: "text",
+          name: "Markdown 编辑器",
+          desc: "Markdown 编辑器",
+          icon: "📝",
+          keywords: "markdown 编辑器"
+        },
+        {
+          url: "tools/text/md-to-html.html",
+          category: "text",
+          name: "Markdown 转 HTML",
+          desc: "Markdown 转 HTML",
+          icon: "📄",
+          keywords: "markdown 转 html"
+        },
+        {
+          url: "tools/text/number-formatter.html",
+          category: "text",
+          name: "数字格式化工具",
+          desc: "数字格式化工具",
+          icon: "🔧",
+          keywords: "数字格式化工具"
+        },
+        {
+          url: "tools/text/pinyin.html",
+          category: "text",
+          name: "汉字转拼音",
+          desc: "汉字转拼音",
+          icon: "🔤",
+          keywords: "汉字转拼音"
+        },
+        {
+          url: "tools/text/placeholder-text.html",
+          category: "text",
+          name: "占位文本生成器",
+          desc: "占位文本生成器",
+          icon: "🔧",
+          keywords: "占位文本生成器"
+        },
+        {
+          url: "tools/text/text-merge.html",
+          category: "text",
+          name: "多行文本合并器",
+          desc: "多行文本合并器",
+          icon: "📝",
+          keywords: "text merge 多行文本合并器"
+        },
+        {
+          url: "tools/text/text-to-binary.html",
+          category: "text",
+          name: "文本二进制转换器",
+          desc: "文本与二进制、十六进制、八进制等格式互转",
+          icon: "🔢",
+          keywords: "binary hex 二进制 十六进制 八进制 转换"
+        },
+        {
+          url: "tools/text/text-reverse.html",
+          category: "text",
+          name: "文本翻转工具",
+          desc: "文本翻转工具",
+          icon: "📝",
+          keywords: "text reverse 文本翻转工具"
+        },
+        {
+          url: "tools/text/text-repeat.html",
+          category: "text",
+          name: "文本重复工具",
+          desc: "将文本重复指定次数，支持自定义分隔符",
+          icon: "🔁",
+          keywords: "text repeat 文本 重复 复制 循环"
+        },
+        {
+          url: "tools/text/text-truncate.html",
+          category: "text",
+          name: "文本截断工具",
+          desc: "按字符、单词或句子截断文本",
+          icon: "✂️",
+          keywords: "text truncate 文本 截断 省略 ellipsis"
+        },
+        {
+          url: "tools/text/line-number.html",
+          category: "text",
+          name: "行号添加/移除",
+          desc: "为文本添加或移除行号",
+          icon: "🔢",
+          keywords: "line number 行号 添加 移除 代码 编号"
+        },
+        {
+          url: "tools/text/text-columns.html",
+          category: "text",
+          name: "列处理工具",
+          desc: "处理 CSV/TSV 格式的列数据",
+          icon: "📊",
+          keywords: "column csv tsv 列 表格 提取 分隔符"
+        },
+        {
+          url: "tools/text/word-frequency.html",
+          category: "text",
+          name: "词频统计",
+          desc: "统计文本中单词出现的频率",
+          icon: "📈",
+          keywords: "word frequency 词频 统计 分析 计数"
+        },
+        {
+          url: "tools/text/diff-checker.html",
+          category: "text",
+          name: "文本对比工具",
+          desc: "对比两段文本的差异",
+          icon: "📊",
+          keywords: "diff compare 对比 比较 差异 文本"
+        },
+        {
+          url: "tools/text/cn-convert.html",
+          category: "text",
+          name: "中文简繁转换",
+          desc: "中文简繁转换",
+          icon: "🔄",
+          keywords: "中文简繁转换"
+        },
+        {
+          url: "tools/text/divider.html",
+          category: "text",
+          name: "分隔线生成器",
+          desc: "分隔线生成器",
+          icon: "🔧",
+          keywords: "分隔线生成器"
+        },
+        {
+          url: "tools/text/table-border.html",
+          category: "text",
+          name: "表格线生成器",
+          desc: "表格线生成器",
+          icon: "🔧",
+          keywords: "表格线生成器"
+        },
+        {
+          url: "tools/text/text-frequency.html",
+          category: "text",
+          name: "文本频率分析",
+          desc: "文本频率分析",
+          icon: "🔧",
+          keywords: "文本频率分析"
+        },
+        {
+          url: "tools/text/text-similarity.html",
+          category: "text",
+          name: "文本相似度计算",
+          desc: "文本相似度计算",
+          icon: "🔧",
+          keywords: "文本相似度计算"
+        },
+        {
+          url: "tools/text/typing-test.html",
+          category: "text",
+          name: "打字速度测试",
+          desc: "打字速度测试",
+          icon: "🔧",
+          keywords: "打字速度测试"
+        },
+        {
+          url: "tools/text/text-encrypt.html",
+          category: "text",
+          name: "文本加密工具",
+          desc: "文本加密工具",
+          icon: "📝",
+          keywords: "text encrypt 文本加密工具"
+        },
+        {
+          url: "tools/text/column-processor.html",
+          category: "text",
+          name: "文本列处理器",
+          desc: "文本列处理器",
+          icon: "📝",
+          keywords: "column processor 文本列处理器"
+        },
+        {
+          url: "tools/text/random-picker.html",
+          category: "text",
+          name: "随机文本选择器",
+          desc: "随机文本选择器",
+          icon: "🎲",
+          keywords: "random picker 随机文本选择器"
+        },
+        {
+          url: "tools/text/bbcode-converter.html",
+          category: "text",
+          name: "BBCode与HTML互转",
+          desc: "BBCode与HTML互转",
+          icon: "📝",
+          keywords: "bbcode converter bbcode与html互转"
+        },
+        {
+          url: "tools/text/richtext-to-plain.html",
+          category: "text",
+          name: "富文本转纯文本",
+          desc: "富文本转纯文本",
+          icon: "📝",
+          keywords: "richtext to plain 富文本转纯文本"
+        },
+        {
+          url: "tools/text/shuangpin-trainer.html",
+          category: "text",
+          name: "双拼练习器",
+          desc: "双拼练习器",
+          icon: "📝",
+          keywords: "shuangpin trainer 双拼练习器"
+        },
+        {
+          url: "tools/text/text-splitter.html",
+          category: "text",
+          name: "文本分割器",
+          desc: "文本分割器",
+          icon: "📝",
+          keywords: "text splitter 文本分割器"
+        },
+        {
+          url: "tools/text/pinyin-sort.html",
+          category: "text",
+          name: "拼音排序工具",
+          desc: "拼音排序工具",
+          icon: "📝",
+          keywords: "pinyin sort 拼音排序工具"
+        },
+        {
+          url: "tools/text/homophone-checker.html",
+          category: "text",
+          name: "同音字检查器",
+          desc: "同音字检查器",
+          icon: "📝",
+          keywords: "homophone checker 同音字检查器"
+        },
+        {
+          url: "tools/text/pinyin-converter.html",
+          category: "text",
+          name: "汉字转拼音",
+          desc: "汉字转拼音",
+          icon: "📝",
+          keywords: "pinyin converter 汉字转拼音"
+        },
+        {
+          url: "tools/text/latex-editor.html",
+          category: "text",
+          name: "LaTeX公式编辑器",
+          desc: "LaTeX公式编辑器",
+          icon: "📝",
+          keywords: "latex editor latex公式编辑器"
+        },
+        // 时间工具
+        {
+          url: "tools/time/countdown.html",
+          category: "time",
+          name: "倒计时器",
+          desc: "设定倒计时或目标日期倒数，支持通知提醒",
+          icon: "⏳",
+          keywords: "倒计时 计时器 timer countdown 提醒"
+        },
+        {
+          url: "tools/time/work-hours.html",
+          category: "time",
+          name: "工时计算器",
+          desc: "计算工作时长、加班时间和薪资估算",
+          icon: "💼",
+          keywords: "工时 工作时间 加班 薪资 考勤"
+        },
+        {
+          url: "tools/time/age-calculator.html",
+          category: "time",
+          name: "年龄计算器",
+          desc: "根据生日计算精确年龄、星座、生肖等信息",
+          icon: "🎂",
+          keywords: "年龄 生日 计算 星座 生肖 age birthday"
+        },
+        {
+          url: "tools/time/date-calculator.html",
+          category: "time",
+          name: "日期计算器",
+          desc: "计算日期差异、日期推算、工作日统计",
+          icon: "📅",
+          keywords: "日期 计算 工作日 天数差"
+        },
+        {
+          url: "tools/time/timestamp.html",
+          category: "time",
+          name: "时间戳转换",
+          desc: "时间戳与日期互转，支持多种格式和时区",
+          icon: "⏱",
+          keywords: "时间戳 timestamp 日期 转换 unix epoch"
+        },
+        {
+          url: "tools/time/timezone-converter.html",
+          category: "time",
+          name: "时区转换器",
+          desc: "在不同时区之间转换时间",
+          icon: "🌍",
+          keywords: "时区 timezone 转换 世界时间"
+        },
+        {
+          url: "tools/time/world-clock.html",
+          category: "time",
+          name: "世界时钟",
+          desc: "世界时钟",
+          icon: "🌍",
+          keywords: "世界时钟"
+        },
+        {
+          url: "tools/time/cron-parser.html",
+          category: "time",
+          name: "Cron 表达式解析",
+          desc: "解析 Cron 表达式，展示可读描述和下次执行时间",
+          icon: "⚙",
+          keywords: "cron 定时任务 表达式 解析 调度"
+        },
+        {
+          url: "tools/time/stopwatch.html",
+          category: "time",
+          name: "秒表计时器",
+          desc: "在线秒表，支持计次、暂停、毫秒精度显示",
+          icon: "⏱️",
+          keywords: "秒表 计时器 stopwatch timer 计次 lap"
+        },
+        {
+          url: "tools/time/countdown-event.html",
+          category: "time",
+          name: "纪念日倒计时",
+          desc: "管理重要日期和纪念日，支持每年重复提醒",
+          icon: "📅",
+          keywords: "纪念日 倒计时 生日 周年 countdown event 提醒"
+        },
+        {
+          url: "tools/time/pomodoro.html",
+          category: "time",
+          name: "番茄钟计时器",
+          desc: "番茄钟计时器",
+          icon: "🍅",
+          keywords: "番茄钟计时器"
+        },
+        {
+          url: "tools/time/chinese-calendar.html",
+          category: "time",
+          name: "农历日历",
+          desc: "农历日历",
+          icon: "📅",
+          keywords: "农历日历"
+        },
+        {
+          url: "tools/time/meeting-scheduler.html",
+          category: "time",
+          name: "跨时区会议时间协调器",
+          desc: "跨时区会议时间协调器",
+          icon: "⏰",
+          keywords: "meeting scheduler 跨时区会议时间协调器"
+        },
+        // 生成器
+        {
+          url: "tools/generator/qrcode-generator.html",
+          category: "generator",
+          name: "二维码生成器",
+          desc: "生成自定义颜色和大小的二维码",
+          icon: "▣",
+          keywords: "二维码 qrcode 生成 扫码"
+        },
+        {
+          url: "tools/generator/fake-data.html",
+          category: "generator",
+          name: "假数据生成器",
+          desc: "生成测试用的假数据：姓名、邮箱、地址、电话等",
+          icon: "🎭",
+          keywords: "假数据 mock 测试 姓名 邮箱 地址"
+        },
+        {
+          url: "tools/generator/password-generator.html",
+          category: "generator",
+          name: "密码生成器",
+          desc: "生成安全随机密码，支持自定义长度和字符类型",
+          icon: "🔐",
+          keywords: "密码 password 随机 安全 生成"
+        },
+        {
+          url: "tools/generator/random-number.html",
+          category: "generator",
+          name: "随机数生成器",
+          desc: "随机数生成器",
+          icon: "🎲",
+          keywords: "随机数生成器"
+        },
+        {
+          url: "tools/generator/barcode.html",
+          category: "generator",
+          name: "条形码生成器",
+          desc: "生成多种格式条形码：Code128、EAN、UPC 等",
+          icon: "|||",
+          keywords: "条形码 barcode code128 ean upc 商品码"
+        },
+        {
+          url: "tools/generator/avatar.html",
+          category: "generator",
+          name: "头像生成器",
+          desc: "生成多种风格的头像：首字母、像素、Identicon 等",
+          icon: "👤",
+          keywords: "头像 avatar 像素 identicon 首字母"
+        },
+        {
+          url: "tools/generator/placeholder-image.html",
+          category: "generator",
+          name: "占位图生成器",
+          desc: "生成自定义尺寸、颜色、文字的占位图片",
+          icon: "🖼",
+          keywords: "占位图 placeholder 图片 尺寸 预览"
+        },
+        {
+          url: "tools/generator/gradient-css.html",
+          category: "generator",
+          name: "CSS 渐变生成器",
+          desc: "可视化创建 CSS 渐变，支持线性、径向和锥形渐变",
+          icon: "🌈",
+          keywords: "渐变 gradient css 线性 径向 背景"
+        },
+        {
+          url: "tools/generator/mock-data.html",
+          category: "generator",
+          name: "Mock 数据生成器",
+          desc: "生成模拟测试数据",
+          icon: "📋",
+          keywords: "mock 数据生成器"
+        },
+        {
+          url: "tools/generator/nanoid-generator.html",
+          category: "generator",
+          name: "NanoID 生成器",
+          desc: "生成紧凑的 URL 安全短 ID，可自定义长度和字符集",
+          icon: "🆔",
+          keywords: "nanoid 短id url安全 唯一标识"
+        },
+        {
+          url: "tools/generator/og-preview.html",
+          category: "generator",
+          name: "Open Graph 预览器",
+          desc: "Open Graph 预览",
+          icon: "🔗",
+          keywords: "open graph 预览器"
+        },
+        {
+          url: "tools/generator/uuid-generator.html",
+          category: "generator",
+          name: "UUID/ULID 生成器",
+          desc: "生成 UUID v4/v7 和 ULID，支持批量生成",
+          icon: "#",
+          keywords: "uuid ulid 生成 随机 id 唯一标识"
+        },
+        {
+          url: "tools/generator/wifi-qrcode.html",
+          category: "generator",
+          name: "WiFi 二维码生成器",
+          desc: "WiFi 二维码生成",
+          icon: "📶",
+          keywords: "wifi 二维码生成器"
+        },
+        {
+          url: "tools/generator/qrcode-scanner.html",
+          category: "generator",
+          name: "二维码扫描器",
+          desc: "在线二维码扫描器，支持摄像头扫描和图片上传",
+          icon: "📷",
+          keywords: "二维码 扫描 qrcode scanner 识别 摄像头"
+        },
+        {
+          url: "tools/generator/qrcode-batch.html",
+          category: "generator",
+          name: "批量二维码生成器",
+          desc: "批量二维码生成器",
+          icon: "🔧",
+          keywords: "批量二维码生成器"
+        },
+        {
+          url: "tools/generator/progress-bar-generator.html",
+          category: "generator",
+          name: "进度条生成器",
+          desc: "自定义样式生成 CSS 进度条，支持动画效果",
+          icon: "📊",
+          keywords: "progress bar 进度条 css 动画 生成器"
+        },
+        {
+          url: "tools/generator/lorem-ipsum.html",
+          category: "generator",
+          name: "Lorem Ipsum 生成器",
+          desc: "生成各种语言的占位文本，支持中文、英文、拉丁文",
+          icon: "📄",
+          keywords: "lorem ipsum 假文 占位符 文本生成 乱数假文"
+        },
+        {
+          url: "tools/generator/wifi-qr.html",
+          category: "generator",
+          name: "WiFi 二维码生成器",
+          desc: "生成 WiFi 连接二维码，扫码即可连接网络",
+          icon: "📶",
+          keywords: "wifi 二维码 qr code 无线网络 密码分享"
+        },
+        {
+          url: "tools/generator/gradient-generator.html",
+          category: "generator",
+          name: "CSS 渐变生成器",
+          desc: "可视化生成 CSS 渐变代码",
+          icon: "🎨",
+          keywords: "css gradient 渐变 颜色 背景 生成器"
+        },
+        {
+          url: "tools/generator/email-signature.html",
+          category: "generator",
+          name: "邮件签名生成器",
+          desc: "生成专业的 HTML 邮件签名",
+          icon: "✉️",
+          keywords: "email signature 邮件 签名 HTML"
+        },
+        {
+          url: "tools/generator/slug-generator.html",
+          category: "generator",
+          name: "URL Slug 生成器",
+          desc: "将文本转换为 URL 友好的 slug",
+          icon: "🔗",
+          keywords: "url slug seo 网址 生成"
+        },
+        {
+          url: "tools/generator/avatar-generator.html",
+          category: "generator",
+          name: "头像生成器",
+          desc: "根据名字首字母生成头像",
+          icon: "👤",
+          keywords: "avatar 头像 生成 字母 首字母"
+        },
+        {
+          url: "tools/generator/business-card.html",
+          category: "generator",
+          name: "名片生成器",
+          desc: "名片生成器",
+          icon: "💼",
+          keywords: "名片生成器"
+        },
+        {
+          url: "tools/generator/code-card.html",
+          category: "generator",
+          name: "代码卡片生成器",
+          desc: "代码卡片生成器",
+          icon: "💻",
+          keywords: "代码卡片生成器"
+        },
+        {
+          url: "tools/generator/color-extract.html",
+          category: "generator",
+          name: "调色板提取器",
+          desc: "调色板提取器",
+          icon: "🔧",
+          keywords: "调色板提取器"
+        },
+        {
+          url: "tools/generator/color-extractor.html",
+          category: "generator",
+          name: "调色板提取器",
+          desc: "调色板提取器",
+          icon: "🎨",
+          keywords: "调色板提取器"
+        },
+        {
+          url: "tools/generator/github-contrib.html",
+          category: "generator",
+          name: "GitHub 贡献图生成器",
+          desc: "GitHub 贡献图生成器",
+          icon: "🔧",
+          keywords: "github 贡献图生成器"
+        },
+        {
+          url: "tools/generator/gradient-card.html",
+          category: "generator",
+          name: "渐变色卡生成器",
+          desc: "渐变色卡生成器",
+          icon: "🔧",
+          keywords: "渐变色卡生成器"
+        },
+        {
+          url: "tools/generator/gradient-palette.html",
+          category: "generator",
+          name: "渐变色卡生成器",
+          desc: "渐变色卡生成器",
+          icon: "🌈",
+          keywords: "渐变色卡生成器"
+        },
+        {
+          url: "tools/generator/logo-text.html",
+          category: "generator",
+          name: "Logo 文字生成器",
+          desc: "Logo 文字生成器",
+          icon: "🔧",
+          keywords: "logo 文字生成器"
+        },
+        {
+          url: "tools/generator/meme-maker.html",
+          category: "generator",
+          name: "表情包生成器",
+          desc: "表情包生成器",
+          icon: "😂",
+          keywords: "表情包生成器"
+        },
+        {
+          url: "tools/generator/noise-texture.html",
+          category: "generator",
+          name: "噪点纹理生成器",
+          desc: "噪点纹理生成器",
+          icon: "🔧",
+          keywords: "噪点纹理生成器"
+        },
+        {
+          url: "tools/generator/pattern-gen.html",
+          category: "generator",
+          name: "几何图案生成器",
+          desc: "几何图案生成器",
+          icon: "🔧",
+          keywords: "几何图案生成器"
+        },
+        {
+          url: "tools/generator/pattern-generator.html",
+          category: "generator",
+          name: "几何图案生成器",
+          desc: "几何图案生成器",
+          icon: "🔷",
+          keywords: "几何图案生成器"
+        },
+        {
+          url: "tools/generator/pixel-editor.html",
+          category: "generator",
+          name: "像素画编辑器",
+          desc: "像素画编辑器",
+          icon: "🎨",
+          keywords: "像素画编辑器"
+        },
+        {
+          url: "tools/generator/progress-bar.html",
+          category: "generator",
+          name: "进度条生成器",
+          desc: "进度条生成器",
+          icon: "🔧",
+          keywords: "进度条生成器"
+        },
+        {
+          url: "tools/generator/signature-gen.html",
+          category: "generator",
+          name: "签名生成器",
+          desc: "签名生成器",
+          icon: "🔧",
+          keywords: "签名生成器"
+        },
+        {
+          url: "tools/generator/signature.html",
+          category: "generator",
+          name: "签名生成器",
+          desc: "签名生成器",
+          icon: "🔧",
+          keywords: "签名生成器"
+        },
+        {
+          url: "tools/generator/social-image.html",
+          category: "generator",
+          name: "社交媒体图片生成器",
+          desc: "社交媒体图片生成器",
+          icon: "🖼",
+          keywords: "社交媒体图片生成器"
+        },
+        {
+          url: "tools/generator/stamp-maker.html",
+          category: "generator",
+          name: "印章生成器",
+          desc: "印章生成器",
+          icon: "🔴",
+          keywords: "印章生成器"
+        },
+        {
+          url: "tools/generator/stamp.html",
+          category: "generator",
+          name: "印章生成器",
+          desc: "印章生成器",
+          icon: "🔧",
+          keywords: "印章生成器"
+        },
+        {
+          url: "tools/generator/text-to-image.html",
+          category: "generator",
+          name: "文字卡片生成器",
+          desc: "文字卡片生成器",
+          icon: "🖼",
+          keywords: "文字卡片生成器"
+        },
+        {
+          url: "tools/generator/vcard-qr.html",
+          category: "generator",
+          name: "二维码名片生成器",
+          desc: "二维码名片生成器",
+          icon: "📱",
+          keywords: "二维码名片生成器"
+        },
+        {
+          url: "tools/generator/wave-bg.html",
+          category: "generator",
+          name: "波浪背景生成器",
+          desc: "波浪背景生成器",
+          icon: "🔧",
+          keywords: "波浪背景生成器"
+        },
+        {
+          url: "tools/generator/white-noise.html",
+          category: "generator",
+          name: "白噪音生成器",
+          desc: "白噪音生成器",
+          icon: "🎧",
+          keywords: "白噪音生成器"
+        },
+        {
+          url: "tools/generator/mesh-gradient.html",
+          category: "generator",
+          name: "Mesh渐变背景生成器",
+          desc: "Mesh渐变背景生成器",
+          icon: "🎲",
+          keywords: "mesh gradient mesh渐变背景生成器"
+        },
+        {
+          url: "tools/generator/svg-blob.html",
+          category: "generator",
+          name: "SVG Blob形状生成器",
+          desc: "SVG Blob形状生成器",
+          icon: "🎲",
+          keywords: "svg blob svg blob形状生成器"
+        },
+        {
+          url: "tools/generator/resume-builder.html",
+          category: "generator",
+          name: "简历生成器",
+          desc: "简历生成器",
+          icon: "🎲",
+          keywords: "resume builder 简历生成器"
+        },
+        {
+          url: "tools/generator/invoice-gen.html",
+          category: "generator",
+          name: "发票/收据生成器",
+          desc: "发票/收据生成器",
+          icon: "📄",
+          keywords: "invoice gen 发票/收据生成器"
+        },
+        {
+          url: "tools/generator/certificate-gen.html",
+          category: "generator",
+          name: "证书生成器",
+          desc: "证书生成器",
+          icon: "🏆",
+          keywords: "certificate gen 证书生成器"
+        },
+        // 媒体工具
+        {
+          url: "tools/media/camera-demo.html",
+          category: "media",
+          name: "摄像头拍照",
+          desc: "调用摄像头拍照并保存到本地",
+          icon: "📷",
+          keywords: "摄像头 拍照 相机 camera photo"
+        },
+        {
+          url: "tools/media/image-crop.html",
+          category: "media",
+          name: "图片裁剪",
+          desc: "在线裁剪图片，支持自由裁剪和预设比例",
+          icon: "✂",
+          keywords: "图片 裁剪 crop 剪切 比例"
+        },
+        {
+          url: "tools/media/image-format-converter.html",
+          category: "media",
+          name: "图片格式批量转换",
+          desc: "批量转换图片格式，支持 PNG/JPG/WebP/AVIF",
+          icon: "🔄",
+          keywords: "图片 批量 转换 格式 png jpg jpeg webp avif 转换器"
+        },
+        {
+          url: "tools/media/image-watermark.html",
+          category: "media",
+          name: "图片水印",
+          desc: "为图片添加文字或图片水印，支持平铺",
+          icon: "💧",
+          keywords: "图片 水印 watermark 文字 logo"
+        },
+        {
+          url: "tools/media/image-compressor.html",
+          category: "media",
+          name: "图片压缩",
+          desc: "本地图片压缩，支持调整质量、尺寸和格式转换",
+          icon: "🖼",
+          keywords: "图片 压缩 resize 缩放 质量 webp jpeg png"
+        },
+        {
+          url: "tools/media/image-resize.html",
+          category: "media",
+          name: "图片压缩对比",
+          desc: "比较不同质量设置下的图片压缩效果",
+          icon: "⚖",
+          keywords: "图片 压缩 对比 质量"
+        },
+        {
+          url: "tools/media/image-to-ascii.html",
+          category: "media",
+          name: "图片转 ASCII 艺术",
+          desc: "图片转 ASCII 字符画",
+          icon: "A",
+          keywords: "图片转 ascii 艺术"
+        },
+        {
+          url: "tools/media/text-to-speech.html",
+          category: "media",
+          name: "文字转语音",
+          desc: "使用 Web Speech API 将文字转为语音朗读",
+          icon: "🔊",
+          keywords: "tts 语音 朗读 播放 speech"
+        },
+        {
+          url: "tools/media/audio-visualizer.html",
+          category: "media",
+          name: "音频可视化器",
+          desc: "音频频谱可视化，支持波形、柱状等多种显示模式",
+          icon: "📊",
+          keywords: "音频 可视化 频谱 波形 visualizer"
+        },
+        {
+          url: "tools/media/base64-image.html",
+          category: "media",
+          name: "Base64 图片转换",
+          desc: "图片与 Base64 编码互转，支持多种格式",
+          icon: "64",
+          keywords: "base64 图片 转换 编码 解码 data uri"
+        },
+        {
+          url: "tools/media/exif-viewer.html",
+          category: "media",
+          name: "EXIF 信息查看",
+          desc: "查看图片的 EXIF 元数据和拍摄信息",
+          icon: "📋",
+          keywords: "exif 图片 信息 元数据 相机 gps"
+        },
+        {
+          url: "tools/media/favicon-generator.html",
+          category: "media",
+          name: "Favicon 生成器",
+          desc: "从文字或图片生成多尺寸 Favicon 图标",
+          icon: "🌟",
+          keywords: "favicon 图标 ico 网站图标"
+        },
+        {
+          url: "tools/media/ico-viewer.html",
+          category: "media",
+          name: "ICO 图标查看器",
+          desc: "查看和提取 ICO 文件中的所有图标尺寸",
+          icon: "🎨",
+          keywords: "ico 图标 icon favicon 查看 提取"
+        },
+        {
+          url: "tools/media/svg-render.html",
+          category: "media",
+          name: "SVG 渲染器",
+          desc: "将 SVG 代码渲染为 PNG/JPEG 图片",
+          icon: "◇",
+          keywords: "svg 渲染 png jpeg 转换"
+        },
+        {
+          url: "tools/media/svg-placeholder.html",
+          category: "media",
+          name: "SVG 占位图生成器 | HTML Tools",
+          desc: "SVG 占位图生成",
+          icon: "▢",
+          keywords: "svg 占位图生成器 | html tools"
+        },
+        {
+          url: "tools/media/screenshot-beautifier.html",
+          category: "media",
+          name: "截图美化工具",
+          desc: "给截图添加精美背景、阴影和圆角，一键生成分享图片",
+          icon: "🖼️",
+          keywords: "截图 美化 背景 阴影 圆角 screenshot beautifier carbon 分享"
+        },
+        {
+          url: "tools/media/text-to-image.html",
+          category: "media",
+          name: "文字转图片",
+          desc: "文字转图片",
+          icon: "🔧",
+          keywords: "文字转图片"
+        },
+        {
+          url: "tools/media/color-extractor.html",
+          category: "media",
+          name: "图片颜色提取器",
+          desc: "图片颜色提取器",
+          icon: "🎨",
+          keywords: "图片颜色提取器"
+        },
+        {
+          url: "tools/media/image-base64.html",
+          category: "media",
+          name: "图片 Base64 转换器",
+          desc: "图片 Base64 转换器",
+          icon: "🔄",
+          keywords: "图片 base64 转换器"
+        },
+        {
+          url: "tools/media/svg-editor.html",
+          category: "media",
+          name: "SVG 编辑器",
+          desc: "SVG 编辑器",
+          icon: "🔧",
+          keywords: "svg 编辑器"
+        },
+        {
+          url: "tools/media/speech-to-text.html",
+          category: "media",
+          name: "语音转文字",
+          desc: "使用 Web Speech API 实时识别语音",
+          icon: "🎤",
+          keywords: "stt speech text 语音识别 语音转文字"
+        },
+        {
+          url: "tools/media/svg-to-png.html",
+          category: "media",
+          name: "SVG 转 PNG",
+          desc: "将 SVG 矢量图转换为 PNG 位图格式",
+          icon: "🖼️",
+          keywords: "svg png 转换 矢量 位图 图片"
+        },
+        {
+          url: "tools/media/image-pixelate.html",
+          category: "media",
+          name: "图片像素化/马赛克",
+          desc: "为图片添加像素化或马赛克效果",
+          icon: "▦",
+          keywords: "pixelate mosaic 像素化 马赛克 模糊 打码"
+        },
+        {
+          url: "tools/media/screen-recorder.html",
+          category: "media",
+          name: "屏幕录制器",
+          desc: "屏幕录制器",
+          icon: "🖼️",
+          keywords: "screen recorder 屏幕录制器"
+        },
+        {
+          url: "tools/image/image-compressor.html",
+          category: "media",
+          name: "图片压缩器",
+          desc: "在浏览器中压缩图片",
+          icon: "🗜️",
+          keywords: "image compress 图片 压缩 优化"
+        },
+        {
+          url: "tools/image/image-cropper.html",
+          category: "media",
+          name: "图片裁剪工具",
+          desc: "自由裁剪或按比例裁剪图片",
+          icon: "✂️",
+          keywords: "image crop 图片 裁剪 剪切"
+        },
+        {
+          url: "tools/image/image-resizer.html",
+          category: "media",
+          name: "图片尺寸调整",
+          desc: "调整图片的宽高尺寸",
+          icon: "📐",
+          keywords: "image resize 图片 尺寸 调整 缩放"
+        },
+        {
+          url: "tools/image/image-to-base64.html",
+          category: "media",
+          name: "图片 Base64 转换",
+          desc: "图片与 Base64 编码互转",
+          icon: "🔄",
+          keywords: "image base64 图片 转换 编码"
+        },
+        {
+          url: "tools/image/color-picker.html",
+          category: "media",
+          name: "图片取色器",
+          desc: "从图片中提取颜色",
+          icon: "🎨",
+          keywords: "取色 颜色 吸管 picker color"
+        },
+        {
+          url: "tools/image/gif-maker.html",
+          category: "media",
+          name: "GIF制作",
+          desc: "将多张图片合成GIF",
+          icon: "🎬",
+          keywords: "gif 动图 制作 合成 maker"
+        },
+        {
+          url: "tools/image/gif-splitter.html",
+          category: "media",
+          name: "GIF分割",
+          desc: "将GIF分割为单帧图片",
+          icon: "✂️",
+          keywords: "gif 分割 分帧 提取 splitter"
+        },
+        {
+          url: "tools/image/id-photo.html",
+          category: "media",
+          name: "证件照裁剪",
+          desc: "裁剪标准尺寸证件照",
+          icon: "🪪",
+          keywords: "证件照 一寸 二寸 裁剪 id photo"
+        },
+        {
+          url: "tools/image/image-blur.html",
+          category: "media",
+          name: "图片模糊",
+          desc: "给图片添加模糊效果",
+          icon: "🌫️",
+          keywords: "模糊 毛玻璃 blur gaussian"
+        },
+        {
+          url: "tools/image/image-border.html",
+          category: "media",
+          name: "图片加边框",
+          desc: "给图片添加各种边框",
+          icon: "🖼️",
+          keywords: "边框 相框 border frame"
+        },
+        {
+          url: "tools/image/image-collage.html",
+          category: "media",
+          name: "图片拼接",
+          desc: "将多张图片拼接在一起",
+          icon: "🧩",
+          keywords: "拼接 合并 collage stitch"
+        },
+        {
+          url: "tools/image/image-filter.html",
+          category: "media",
+          name: "图片滤镜",
+          desc: "给图片添加各种滤镜效果",
+          icon: "✨",
+          keywords: "滤镜 特效 filter effect"
+        },
+        {
+          url: "tools/image/image-flip.html",
+          category: "media",
+          name: "图片翻转",
+          desc: "水平或垂直翻转图片",
+          icon: "🔄",
+          keywords: "翻转 镜像 flip mirror"
+        },
+        {
+          url: "tools/image/image-mosaic.html",
+          category: "media",
+          name: "图片马赛克",
+          desc: "给图片局部添加马赛克",
+          icon: "🟦",
+          keywords: "马赛克 打码 模糊 mosaic pixelate"
+        },
+        {
+          url: "tools/image/image-rotate.html",
+          category: "media",
+          name: "图片旋转",
+          desc: "旋转图片任意角度",
+          icon: "🔃",
+          keywords: "旋转 角度 rotate"
+        },
+        {
+          url: "tools/image/image-round-corner.html",
+          category: "media",
+          name: "图片圆角",
+          desc: "给图片添加圆角",
+          icon: "⬜",
+          keywords: "圆角 rounded corner"
+        },
+        {
+          url: "tools/image/image-sketch.html",
+          category: "media",
+          name: "图片转素描",
+          desc: "将图片转换为素描风格",
+          icon: "✏️",
+          keywords: "素描 铅笔画 sketch pencil"
+        },
+        {
+          url: "tools/image/image-split.html",
+          category: "media",
+          name: "图片分割",
+          desc: "将图片分割为多块",
+          icon: "🔲",
+          keywords: "分割 九宫格 切图 split grid"
+        },
+        {
+          url: "tools/image/image-text.html",
+          category: "media",
+          name: "图片加文字",
+          desc: "在图片上添加文字",
+          icon: "📝",
+          keywords: "文字 水印 text watermark"
+        },
+        {
+          url: "tools/media/gif-splitter.html",
+          category: "media",
+          name: "GIF 分解器",
+          desc: "GIF 分解器",
+          icon: "🔧",
+          keywords: "gif 分解器"
+        },
+        {
+          url: "tools/media/image-collage.html",
+          category: "media",
+          name: "图片拼接器",
+          desc: "图片拼接器",
+          icon: "🔧",
+          keywords: "图片拼接器"
+        },
+        {
+          url: "tools/media/image-color-picker.html",
+          category: "media",
+          name: "图片颜色提取",
+          desc: "图片颜色提取",
+          icon: "🔧",
+          keywords: "图片颜色提取"
+        },
+        {
+          url: "tools/media/image-compare.html",
+          category: "media",
+          name: "图片对比滑块",
+          desc: "图片对比滑块",
+          icon: "🔧",
+          keywords: "图片对比滑块"
+        },
+        {
+          url: "tools/media/image-filter.html",
+          category: "media",
+          name: "图片滤镜编辑器",
+          desc: "图片滤镜编辑器",
+          icon: "🔧",
+          keywords: "图片滤镜编辑器"
+        },
+        {
+          url: "tools/media/image-mosaic.html",
+          category: "media",
+          name: "图片马赛克",
+          desc: "图片马赛克",
+          icon: "🔧",
+          keywords: "图片马赛克"
+        },
+        {
+          url: "tools/media/image-stitcher.html",
+          category: "media",
+          name: "图片拼接器",
+          desc: "图片拼接器",
+          icon: "🖼",
+          keywords: "图片拼接器"
+        },
+        {
+          url: "tools/media/video-thumbnail.html",
+          category: "media",
+          name: "视频缩略图提取器",
+          desc: "视频缩略图提取器",
+          icon: "🎬",
+          keywords: "video thumbnail 视频缩略图提取器"
+        },
+        {
+          url: "tools/media/image-filters.html",
+          category: "media",
+          name: "图片滤镜编辑器",
+          desc: "图片滤镜编辑器",
+          icon: "🖼",
+          keywords: "image filters 图片滤镜编辑器"
+        },
+        {
+          url: "tools/media/audio-cutter.html",
+          category: "media",
+          name: "音频剪辑器",
+          desc: "音频剪辑器",
+          icon: "✂",
+          keywords: "audio cutter 音频剪辑器"
+        },
+        {
+          url: "tools/media/batch-resize.html",
+          category: "media",
+          name: "图片批量调整尺寸",
+          desc: "图片批量调整尺寸",
+          icon: "📐",
+          keywords: "batch resize 图片批量调整尺寸"
+        },
+        {
+          url: "tools/media/color-picker-image.html",
+          category: "media",
+          name: "图片取色器",
+          desc: "图片取色器",
+          icon: "🎨",
+          keywords: "color picker image 图片取色器"
+        },
+        // 隐私安全
+        {
+          url: "tools/privacy/password-strength.html",
+          category: "privacy",
+          name: "密码强度检测",
+          desc: "检测密码强度，分析安全性和破解时间估算",
+          icon: "💪",
+          keywords: "密码强度 password strength 安全 检测"
+        },
+        {
+          url: "tools/privacy/log-masker.html",
+          category: "privacy",
+          name: "日志脱敏",
+          desc: "自动识别并脱敏日志中的 IP、邮箱、手机号等敏感信息",
+          icon: "***",
+          keywords: "日志 脱敏 隐私 ip 邮箱 手机号 敏感信息"
+        },
+        {
+          url: "tools/privacy/random-key.html",
+          category: "privacy",
+          name: "随机密钥生成器",
+          desc: "随机密钥生成",
+          icon: "🔑",
+          keywords: "随机密钥生成器"
+        },
+        {
+          url: "tools/privacy/random-identity.html",
+          category: "privacy",
+          name: "随机身份生成",
+          desc: "生成随机假身份信息用于测试和隐私保护",
+          icon: "🎭",
+          keywords: "身份 identity 随机 假身份 测试数据"
+        },
+        {
+          url: "tools/privacy/file-hash.html",
+          category: "privacy",
+          name: "文件哈希校验",
+          desc: "计算文件的 MD5、SHA-1、SHA-256 哈希值",
+          icon: "✓",
+          keywords: "文件 hash 校验 md5 sha 完整性"
+        },
+        {
+          url: "tools/privacy/credit-card.html",
+          category: "privacy",
+          name: "信用卡验证器",
+          desc: "信用卡号验证",
+          icon: "💳",
+          keywords: "信用卡验证器"
+        },
+        {
+          url: "tools/privacy/encrypt-decrypt.html",
+          category: "privacy",
+          name: "AES 加密解密",
+          desc: "使用 AES-GCM 算法进行文本加密和解密",
+          icon: "🔐",
+          keywords: "aes 加密 解密 密码 安全"
+        },
+        {
+          url: "tools/privacy/rsa-tool.html",
+          category: "privacy",
+          name: "RSA 加密解密",
+          desc: "RSA 加密解密",
+          icon: "🔐",
+          keywords: "rsa 加密解密"
+        },
+        {
+          url: "tools/privacy/idcard-parser.html",
+          category: "privacy",
+          name: "身份证号码解析",
+          desc: "身份证号码解析",
+          icon: "🔧",
+          keywords: "身份证号码解析"
+        },
+        {
+          url: "tools/privacy/text-encrypt.html",
+          category: "privacy",
+          name: "文本加密解密",
+          desc: "文本加密解密",
+          icon: "🔐",
+          keywords: "文本加密解密"
+        },
+        {
+          url: "tools/privacy/steganography.html",
+          category: "privacy",
+          name: "图片隐写术工具",
+          desc: "图片隐写术工具",
+          icon: "🔒",
+          keywords: "steganography 图片隐写术工具"
+        },
+        {
+          url: "tools/privacy/exif-remover.html",
+          category: "privacy",
+          name: "EXIF 信息移除器",
+          desc: "EXIF 信息移除器",
+          icon: "🔒",
+          keywords: "exif remover exif 信息移除器"
+        },
+        {
+          url: "tools/privacy/metadata-viewer.html",
+          category: "privacy",
+          name: "文件元数据查看器",
+          desc: "文件元数据查看器",
+          icon: "🔒",
+          keywords: "metadata viewer 文件元数据查看器"
+        },
+        // 安全工具
+        {
+          url: "tools/security/url-defang.html",
+          category: "security",
+          name: "URL安全化",
+          desc: "URL 脱敏处理",
+          icon: "🛡️",
+          keywords: "url安全化"
+        },
+        {
+          url: "tools/security/password-strength.html",
+          category: "security",
+          name: "密码强度检测器",
+          desc: "检测密码强度，提供安全建议和密码生成",
+          icon: "🔒",
+          keywords: "password strength 密码 强度 安全 检测"
+        },
+        {
+          url: "tools/security/totp-generator.html",
+          category: "security",
+          name: "TOTP 生成器",
+          desc: "基于时间的一次性密码生成器，兼容 Google Authenticator",
+          icon: "🔐",
+          keywords: "totp otp 双因素 2fa 验证码 authenticator 身份验证"
+        },
+        {
+          url: "tools/security/hash-generator.html",
+          category: "security",
+          name: "哈希生成器",
+          desc: "计算文本或文件的哈希值",
+          icon: "🔐",
+          keywords: "hash md5 sha 哈希 加密 摘要"
+        },
+        {
+          url: "tools/security/bcrypt-generator.html",
+          category: "security",
+          name: "Bcrypt 工具",
+          desc: "Bcrypt 密码哈希生成和验证",
+          icon: "🔒",
+          keywords: "bcrypt 密码 哈希 加密 验证"
+        },
+        {
+          url: "tools/security/cors-generator.html",
+          category: "security",
+          name: "CORS 配置生成器",
+          desc: "CORS 配置生成器",
+          icon: "🌐",
+          keywords: "cors 配置生成器"
+        },
+        {
+          url: "tools/security/csp-generator.html",
+          category: "security",
+          name: "CSP 策略生成器",
+          desc: "CSP 策略生成器",
+          icon: "🛡",
+          keywords: "csp 策略生成器"
+        },
+        {
+          url: "tools/security/headers-check.html",
+          category: "security",
+          name: "安全头检测器",
+          desc: "安全头检测器",
+          icon: "🔧",
+          keywords: "安全头检测器"
+        },
+        {
+          url: "tools/security/header-analyzer.html",
+          category: "security",
+          name: "HTTP 响应头分析器",
+          desc: "HTTP 响应头分析器",
+          icon: "📡",
+          keywords: "header analyzer http 响应头分析器"
+        },
+        {
+          url: "tools/security/cookie-parser.html",
+          category: "security",
+          name: "Cookie 解析器",
+          desc: "Cookie 解析器",
+          icon: "🍪",
+          keywords: "cookie parser cookie 解析器"
+        },
+        {
+          url: "tools/security/meta-generator.html",
+          category: "security",
+          name: "Meta 标签生成器",
+          desc: "生成网站 Meta 标签，优化 SEO 和社交分享",
+          icon: "🏷",
+          keywords: "meta generator meta 标签生成器"
+        },
+        {
+          url: "tools/security/sitemap-generator.html",
+          category: "security",
+          name: "sitemap.xml 生成器",
+          desc: "sitemap.xml 生成器",
+          icon: "🗺",
+          keywords: "sitemap generator sitemap.xml 生成器"
+        },
+        {
+          url: "tools/security/robots-generator.html",
+          category: "security",
+          name: "robots.txt 生成器",
+          desc: "robots.txt 生成器",
+          icon: "🤖",
+          keywords: "robots generator robots.txt 生成器"
+        },
+        {
+          url: "tools/security/security-headers.html",
+          category: "security",
+          name: "安全头检测器",
+          desc: "安全头检测器",
+          icon: "🔒",
+          keywords: "security headers 安全头检测器"
+        },
+        // 网络工具
+        {
+          url: "tools/network/port-lookup.html",
+          category: "network",
+          name: "端口查询器",
+          desc: "常用端口号速查，包含服务名称和协议说明",
+          icon: "🚪",
+          keywords: "端口 port 服务 协议 常用端口"
+        },
+        {
+          url: "tools/network/http-header-parser.html",
+          category: "network",
+          name: "HTTP 头解析器",
+          desc: "HTTP 请求头解析",
+          icon: "📋",
+          keywords: "http 头解析器"
+        },
+        {
+          url: "tools/network/ip-tools.html",
+          category: "network",
+          name: "IP 地址工具",
+          desc: "IP 地址工具集",
+          icon: "🌐",
+          keywords: "ip 地址工具"
+        },
+        {
+          url: "tools/network/subnet-calculator.html",
+          category: "network",
+          name: "IP 子网计算器",
+          desc: "计算 CIDR 子网范围、可用 IP 数量和掩码转换",
+          icon: "📡",
+          keywords: "ip 子网 cidr 掩码 网段 subnet"
+        },
+        {
+          url: "tools/network/mac-lookup.html",
+          category: "network",
+          name: "MAC 地址查询",
+          desc: "查询 MAC 地址对应的设备厂商信息",
+          icon: "🔎",
+          keywords: "mac 地址 厂商 oui 网卡"
+        },
+        {
+          url: "tools/network/user-agent.html",
+          category: "network",
+          name: "User Agent 解析器",
+          desc: "User-Agent 检测",
+          icon: "🔍",
+          keywords: "user agent 解析器"
+        },
+        {
+          url: "tools/network/device-info.html",
+          category: "network",
+          name: "设备信息",
+          desc: "查看设备、浏览器和系统的详细信息",
+          icon: "💻",
+          keywords: "设备 浏览器 系统 屏幕 device browser"
+        },
+        {
+          url: "tools/network/ip-calculator.html",
+          category: "network",
+          name: "IP 地址计算器",
+          desc: "计算 IP 子网、网络地址、广播地址等",
+          icon: "🌐",
+          keywords: "ip subnet 子网 掩码 网络 cidr 计算"
+        },
+        {
+          url: "tools/network/rest-client.html",
+          category: "network",
+          name: "REST API 测试器",
+          desc: "REST API 测试器",
+          icon: "🔧",
+          keywords: "rest api 测试器"
+        },
+        {
+          url: "tools/network/sse-client.html",
+          category: "network",
+          name: "SSE 事件流调试器",
+          desc: "SSE 事件流调试器",
+          icon: "🔧",
+          keywords: "sse 事件流调试器"
+        },
+        {
+          url: "tools/network/websocket-client.html",
+          category: "network",
+          name: "WebSocket 调试器",
+          desc: "WebSocket 调试器",
+          icon: "🔧",
+          keywords: "websocket 调试器"
+        },
+        {
+          url: "tools/network/ip-lookup.html",
+          category: "network",
+          name: "IP 地址查询",
+          desc: "查询 IP 地址的地理位置信息",
+          icon: "🌐",
+          keywords: "ip address 地址 查询 地理位置"
+        },
+        {
+          url: "tools/network/dns-lookup.html",
+          category: "network",
+          name: "DNS 记录查询工具",
+          desc: "DNS 记录查询工具",
+          icon: "🔍",
+          keywords: "dns 记录查询工具"
+        },
+        {
+          url: "tools/network/meta-generator.html",
+          category: "network",
+          name: "Meta 标签生成器",
+          desc: "Meta 标签生成器",
+          icon: "🏷",
+          keywords: "meta 标签生成器"
+        },
+        {
+          url: "tools/network/ssl-parser.html",
+          category: "network",
+          name: "SSL 证书解析器",
+          desc: "SSL 证书解析器",
+          icon: "🔐",
+          keywords: "ssl 证书解析器"
+        },
+        // 计算器
+        {
+          url: "tools/calculator/percentage.html",
+          category: "calculator",
+          name: "百分比计算器",
+          desc: "多种百分比计算模式：求百分比、增减、占比等",
+          icon: "%",
+          keywords: "百分比 percent 计算 增长率 折扣"
+        },
+        {
+          url: "tools/calculator/storage-converter.html",
+          category: "calculator",
+          name: "存储单位换算",
+          desc: "B/KB/MB/GB/TB/PB 存储单位互转",
+          icon: "💾",
+          keywords: "存储 单位 字节 kb mb gb tb 换算"
+        },
+        {
+          url: "tools/calculator/progress.html",
+          category: "calculator",
+          name: "进度计算器",
+          desc: "计算项目进度百分比和预计完成时间",
+          icon: "📈",
+          keywords: "进度 百分比 完成度 项目 预估"
+        },
+        {
+          url: "tools/calculator/aspect-ratio.html",
+          category: "calculator",
+          name: "宽高比计算器",
+          desc: "计算屏幕/图片宽高比，支持常见比例换算",
+          icon: "📐",
+          keywords: "宽高比 比例 屏幕 分辨率 16:9 4:3"
+        },
+        {
+          url: "tools/calculator/bitwise-calculator.html",
+          category: "calculator",
+          name: "位运算计算器",
+          desc: "位运算计算器",
+          icon: "&",
+          keywords: "位运算计算器"
+        },
+        {
+          url: "tools/calculator/math-evaluator.html",
+          category: "calculator",
+          name: "数学表达式计算器",
+          desc: "计算复杂数学表达式，支持函数和常量",
+          icon: "∑",
+          keywords: "数学 表达式 计算器 公式 函数 math"
+        },
+        {
+          url: "tools/calculator/bmi-calculator.html",
+          category: "calculator",
+          name: "BMI 计算器",
+          desc: "计算身体质量指数，评估体重健康状况",
+          icon: "⚖️",
+          keywords: "bmi 身体质量指数 体重 健康 计算器"
+        },
+        {
+          url: "tools/calculator/loan-calculator.html",
+          category: "calculator",
+          name: "贷款计算器",
+          desc: "计算贷款月供、总利息，支持两种还款方式",
+          icon: "💰",
+          keywords: "贷款 房贷 计算器 等额本息 等额本金 还款"
+        },
+        {
+          url: "tools/calculator/base-calculator.html",
+          category: "calculator",
+          name: "进制计算器",
+          desc: "多进制转换和位运算计算器，支持可视化位操作",
+          icon: "🔢",
+          keywords: "进制 计算器 二进制 八进制 十六进制 位运算 bit"
+        },
+        {
+          url: "tools/calculator/aspect-ratio-calculator.html",
+          category: "calculator",
+          name: "宽高比计算器",
+          desc: "计算和转换宽高比，支持常见视频图片分辨率",
+          icon: "📐",
+          keywords: "aspect ratio 宽高比 比例 分辨率 16:9"
+        },
+        {
+          url: "tools/calculator/tip-calculator.html",
+          category: "calculator",
+          name: "小费/AA计算器",
+          desc: "小费/AA计算器",
+          icon: "💰",
+          keywords: "tip calculator 小费/aa计算器"
+        },
+        {
+          url: "tools/calculator/discount-calculator.html",
+          category: "calculator",
+          name: "折扣计算器",
+          desc: "计算折扣价格和节省金额",
+          icon: "🏷️",
+          keywords: "discount 折扣 优惠 价格 计算"
+        },
+        {
+          url: "tools/calculator/date-diff.html",
+          category: "calculator",
+          name: "日期差计算器",
+          desc: "计算两个日期之间的差值",
+          icon: "📅",
+          keywords: "date diff 日期 天数 差值 计算"
+        },
+        {
+          url: "tools/calculator/age-calculator.html",
+          category: "calculator",
+          name: "年龄计算器",
+          desc: "计算精确年龄和生日信息",
+          icon: "🎂",
+          keywords: "age 年龄 生日 计算 星座"
+        },
+        {
+          url: "tools/calculator/compound-interest.html",
+          category: "calculator",
+          name: "复利计算器",
+          desc: "复利计算器",
+          icon: "🔢",
+          keywords: "compound interest 复利计算器"
+        },
+        {
+          url: "tools/calculator/function-plotter.html",
+          category: "calculator",
+          name: "函数图像绘制器",
+          desc: "绘制数学函数图像",
+          icon: "📊",
+          keywords: "函数 图像 绘制 数学 坐标 function plot graph"
+        },
+        {
+          url: "tools/calculator/matrix-calculator.html",
+          category: "calculator",
+          name: "矩阵计算器",
+          desc: "矩阵运算、行列式、逆矩阵等",
+          icon: "🔢",
+          keywords: "矩阵 行列式 逆矩阵 转置 matrix determinant"
+        },
+        {
+          url: "tools/calculator/mortgage-calculator.html",
+          category: "calculator",
+          name: "房贷计算器",
+          desc: "计算房贷月供和总利息",
+          icon: "🏠",
+          keywords: "房贷 贷款 等额本息 等额本金 mortgage loan"
+        },
+        {
+          url: "tools/calculator/salary-calculator.html",
+          category: "calculator",
+          name: "工资计算器",
+          desc: "计算税后工资和五险一金",
+          icon: "💰",
+          keywords: "工资 税后 五险一金 个税 salary tax"
+        },
+        {
+          url: "tools/calculator/scientific-calculator.html",
+          category: "calculator",
+          name: "科学计算器",
+          desc: "支持科学函数的高级计算器",
+          icon: "🔬",
+          keywords: "科学 计算器 三角函数 对数 scientific calculator"
+        },
+        {
+          url: "tools/calculator/unit-converter.html",
+          category: "calculator",
+          name: "单位换算器",
+          desc: "各种单位之间的换算",
+          icon: "📐",
+          keywords: "单位 换算 长度 重量 面积 unit converter"
+        },
+        {
+          url: "tools/calculator/compound.html",
+          category: "calculator",
+          name: "复利计算器",
+          desc: "复利计算器",
+          icon: "🔧",
+          keywords: "复利计算器"
+        },
+        {
+          url: "tools/calculator/currency.html",
+          category: "calculator",
+          name: "汇率转换器",
+          desc: "汇率转换器",
+          icon: "🔧",
+          keywords: "汇率转换器"
+        },
+        {
+          url: "tools/calculator/electricity.html",
+          category: "calculator",
+          name: "电费计算器",
+          desc: "电费计算器",
+          icon: "🔧",
+          keywords: "电费计算器"
+        },
+        {
+          url: "tools/calculator/equation.html",
+          category: "calculator",
+          name: "方程求解器",
+          desc: "方程求解器",
+          icon: "🔧",
+          keywords: "方程求解器"
+        },
+        {
+          url: "tools/calculator/fuel.html",
+          category: "calculator",
+          name: "油耗计算器",
+          desc: "油耗计算器",
+          icon: "🔧",
+          keywords: "油耗计算器"
+        },
+        {
+          url: "tools/calculator/matrix-calc.html",
+          category: "calculator",
+          name: "矩阵计算器",
+          desc: "矩阵计算器",
+          icon: "📊",
+          keywords: "矩阵计算器"
+        },
+        {
+          url: "tools/calculator/matrix.html",
+          category: "calculator",
+          name: "矩阵计算器",
+          desc: "矩阵计算器",
+          icon: "🔧",
+          keywords: "矩阵计算器"
+        },
+        {
+          url: "tools/calculator/permutation.html",
+          category: "calculator",
+          name: "排列组合计算器",
+          desc: "排列组合计算器",
+          icon: "🔧",
+          keywords: "排列组合计算器"
+        },
+        {
+          url: "tools/calculator/probability.html",
+          category: "calculator",
+          name: "概率计算器",
+          desc: "概率计算器",
+          icon: "🔧",
+          keywords: "概率计算器"
+        },
+        {
+          url: "tools/calculator/programmer-calc.html",
+          category: "calculator",
+          name: "程序员计算器",
+          desc: "程序员计算器",
+          icon: "💻",
+          keywords: "程序员计算器"
+        },
+        {
+          url: "tools/calculator/programmer.html",
+          category: "calculator",
+          name: "程序员计算器",
+          desc: "程序员计算器",
+          icon: "🔧",
+          keywords: "程序员计算器"
+        },
+        {
+          url: "tools/calculator/salary.html",
+          category: "calculator",
+          name: "税后工资计算器",
+          desc: "税后工资计算器",
+          icon: "🔧",
+          keywords: "税后工资计算器"
+        },
+        {
+          url: "tools/calculator/scientific-calc.html",
+          category: "calculator",
+          name: "科学计算器",
+          desc: "科学计算器",
+          icon: "🔬",
+          keywords: "科学计算器"
+        },
+        {
+          url: "tools/calculator/scientific.html",
+          category: "calculator",
+          name: "科学计算器",
+          desc: "科学计算器",
+          icon: "🔧",
+          keywords: "科学计算器"
+        },
+        {
+          url: "tools/calculator/speed-calc.html",
+          category: "calculator",
+          name: "网速计算器",
+          desc: "网速计算器",
+          icon: "🔧",
+          keywords: "网速计算器"
+        },
+        {
+          url: "tools/calculator/statistics-calc.html",
+          category: "calculator",
+          name: "统计计算器",
+          desc: "统计计算器",
+          icon: "📈",
+          keywords: "统计计算器"
+        },
+        {
+          url: "tools/calculator/statistics.html",
+          category: "calculator",
+          name: "统计计算器",
+          desc: "统计计算器",
+          icon: "🔧",
+          keywords: "统计计算器"
+        },
+        {
+          url: "tools/calculator/time-calc.html",
+          category: "calculator",
+          name: "时间加减计算器",
+          desc: "时间加减计算器",
+          icon: "🔧",
+          keywords: "时间加减计算器"
+        },
+        {
+          url: "tools/calculator/triangle.html",
+          category: "calculator",
+          name: "三角函数计算器",
+          desc: "三角函数计算器",
+          icon: "🔧",
+          keywords: "三角函数计算器"
+        },
+        {
+          url: "tools/calculator/electricity-calc.html",
+          category: "calculator",
+          name: "电费计算器",
+          desc: "电费计算器",
+          icon: "🔢",
+          keywords: "electricity calc 电费计算器"
+        },
+        {
+          url: "tools/calculator/combination-calc.html",
+          category: "calculator",
+          name: "排列组合计算器",
+          desc: "排列组合计算器",
+          icon: "🔢",
+          keywords: "combination calc 排列组合计算器"
+        },
+        {
+          url: "tools/calculator/age-diff-calc.html",
+          category: "calculator",
+          name: "年龄差计算器",
+          desc: "年龄差计算器",
+          icon: "👥",
+          keywords: "age diff calc 年龄差计算器"
+        },
+        {
+          url: "tools/calculator/probability-calc.html",
+          category: "calculator",
+          name: "概率计算器",
+          desc: "概率计算器",
+          icon: "🔢",
+          keywords: "probability calc 概率计算器"
+        },
+        {
+          url: "tools/calculator/equation-solver.html",
+          category: "calculator",
+          name: "方程求解器",
+          desc: "方程求解器",
+          icon: "🔢",
+          keywords: "equation solver 方程求解器"
+        },
+        {
+          url: "tools/calculator/salary-calc.html",
+          category: "calculator",
+          name: "税后工资计算器",
+          desc: "税后工资计算器",
+          icon: "🔢",
+          keywords: "salary calc 税后工资计算器"
+        },
+        {
+          url: "tools/calculator/discount-calc.html",
+          category: "calculator",
+          name: "折扣计算器",
+          desc: "折扣计算器",
+          icon: "🏷",
+          keywords: "discount calc 折扣计算器"
+        },
+        {
+          url: "tools/calculator/fuel-calc.html",
+          category: "calculator",
+          name: "油耗计算器",
+          desc: "油耗计算器",
+          icon: "🔢",
+          keywords: "fuel calc 油耗计算器"
+        },
+        {
+          url: "tools/calculator/triangle-calc.html",
+          category: "calculator",
+          name: "三角函数计算器",
+          desc: "三角函数计算器",
+          icon: "🔢",
+          keywords: "triangle calc 三角函数计算器"
+        },
+        {
+          url: "tools/calculator/currency-converter.html",
+          category: "calculator",
+          name: "汇率转换器",
+          desc: "汇率转换器",
+          icon: "🔢",
+          keywords: "currency converter 汇率转换器"
+        },
+        // 转换器
+        {
+          url: "tools/converter/unit-converter.html",
+          category: "converter",
+          name: "单位转换器",
+          desc: "长度、重量、温度、面积等多种单位换算",
+          icon: "⚖️",
+          keywords: "单位 换算 长度 重量 温度 面积"
+        },
+        {
+          url: "tools/converter/file-size.html",
+          category: "converter",
+          name: "文件大小计算器",
+          desc: "文件大小单位转换",
+          icon: "📁",
+          keywords: "文件大小计算器"
+        },
+        {
+          url: "tools/converter/json-yaml.html",
+          category: "converter",
+          name: "JSON ⇄ YAML 转换",
+          desc: "JSON 和 YAML 双向转换，支持格式化和压缩",
+          icon: "🔄",
+          keywords: "json yaml 转换 converter 配置文件 双向转换"
+        },
+        {
+          url: "tools/converter/csv-json.html",
+          category: "converter",
+          name: "CSV ⇄ JSON 转换",
+          desc: "CSV 和 JSON 双向转换，支持表格预览",
+          icon: "📊",
+          keywords: "csv json 转换 表格 数据 excel converter"
+        },
+        {
+          url: "tools/converter/curl-to-code.html",
+          category: "converter",
+          name: "cURL to Code",
+          desc: "将 cURL 命令转换为多种编程语言代码",
+          icon: "🔧",
+          keywords: "curl 转换 代码 javascript python go php java api 请求"
+        },
+        {
+          url: "tools/converter/data-url-converter.html",
+          category: "converter",
+          name: "Data URL 转换器",
+          desc: "文件与 Data URL/Base64 互转，支持多种输出格式",
+          icon: "🔗",
+          keywords: "data url base64 图片 文件 编码 解码 转换"
+        },
+        {
+          url: "tools/converter/html-to-markdown.html",
+          category: "converter",
+          name: "HTML 转 Markdown",
+          desc: "将 HTML 代码转换为 Markdown 格式",
+          icon: "📝",
+          keywords: "html markdown 转换 md 格式"
+        },
+        {
+          url: "tools/converter/number-base.html",
+          category: "converter",
+          name: "进制转换器",
+          desc: "任意进制 (2-36) 数字转换",
+          icon: "🔢",
+          keywords: "number base 进制 二进制 八进制 十六进制 转换"
+        },
+        {
+          url: "tools/converter/temperature.html",
+          category: "converter",
+          name: "温度转换器",
+          desc: "摄氏、华氏、开尔文温度单位互转",
+          icon: "🌡️",
+          keywords: "temperature 温度 摄氏 华氏 开尔文 转换"
+        },
+        {
+          url: "tools/converter/length-converter.html",
+          category: "converter",
+          name: "长度单位转换器",
+          desc: "长度单位转换器",
+          icon: "📏",
+          keywords: "length converter 长度单位转换器"
+        },
+        {
+          url: "tools/converter/weight-converter.html",
+          category: "converter",
+          name: "重量单位转换器",
+          desc: "重量单位转换器",
+          icon: "🔄",
+          keywords: "weight converter 重量单位转换器"
+        },
+        {
+          url: "tools/converter/area-converter.html",
+          category: "converter",
+          name: "面积单位转换器",
+          desc: "平方米、亩、公顷等面积单位互转",
+          icon: "📐",
+          keywords: "area 面积 平方米 亩 公顷 转换"
+        },
+        {
+          url: "tools/converter/volume-converter.html",
+          category: "converter",
+          name: "体积容量转换器",
+          desc: "升、毫升、加仑等容量单位互转",
+          icon: "🧪",
+          keywords: "volume 体积 容量 升 加仑 转换"
+        },
+        {
+          url: "tools/converter/speed-converter.html",
+          category: "converter",
+          name: "速度单位转换器",
+          desc: "公里/小时、英里/小时、节等速度单位互转",
+          icon: "🚀",
+          keywords: "speed 速度 公里 英里 节 马赫 转换"
+        },
+        {
+          url: "tools/converter/data-size-converter.html",
+          category: "converter",
+          name: "数据存储单位转换器",
+          desc: "Bit、Byte、KB、MB、GB 等单位互转",
+          icon: "💾",
+          keywords: "data size 数据 存储 KB MB GB TB 转换"
+        },
+        {
+          url: "tools/converter/time-converter.html",
+          category: "converter",
+          name: "时间单位转换器",
+          desc: "秒、分钟、小时、天等时间单位互转",
+          icon: "⏱️",
+          keywords: "time 时间 秒 分钟 小时 天 转换"
+        },
+        {
+          url: "tools/converter/angle-converter.html",
+          category: "converter",
+          name: "角度单位转换器",
+          desc: "度、弧度、梯度等角度单位互转",
+          icon: "📐",
+          keywords: "angle 角度 弧度 度 梯度 转换"
+        },
+        {
+          url: "tools/converter/pressure-converter.html",
+          category: "converter",
+          name: "压力单位转换器",
+          desc: "帕斯卡、巴、大气压、PSI 等压力单位互转",
+          icon: "🌡️",
+          keywords: "pressure 压力 帕斯卡 巴 大气压 psi 转换"
+        },
+        {
+          url: "tools/converter/number-words.html",
+          category: "converter",
+          name: "数字转大写",
+          desc: "数字转大写",
+          icon: "🔧",
+          keywords: "数字转大写"
+        },
+        {
+          url: "tools/converter/temperature-converter.html",
+          category: "converter",
+          name: "温度转换器",
+          desc: "温度转换器",
+          icon: "🌡",
+          keywords: "temperature converter 温度转换器"
+        },
+        {
+          url: "tools/converter/area.html",
+          category: "converter",
+          name: "面积单位转换器",
+          desc: "各种面积单位之间的相互转换",
+          icon: "📐",
+          keywords: "area converter 面积 转换"
+        },
+        {
+          url: "tools/converter/data-size.html",
+          category: "converter",
+          name: "数据大小转换器",
+          desc: "数据存储单位之间的转换",
+          icon: "💾",
+          keywords: "data size converter 数据 大小 转换"
+        },
+        {
+          url: "tools/converter/length.html",
+          category: "converter",
+          name: "长度单位转换器",
+          desc: "各种长度单位之间的相互转换",
+          icon: "📏",
+          keywords: "length converter 长度 转换"
+        },
+        {
+          url: "tools/converter/speed.html",
+          category: "converter",
+          name: "速度单位转换器",
+          desc: "各种速度单位之间的相互转换",
+          icon: "🏃",
+          keywords: "speed converter 速度 转换"
+        },
+        {
+          url: "tools/converter/time.html",
+          category: "converter",
+          name: "时间单位转换器",
+          desc: "各种时间单位之间的相互转换",
+          icon: "⏱️",
+          keywords: "time converter 时间 转换"
+        },
+        {
+          url: "tools/converter/volume.html",
+          category: "converter",
+          name: "体积容量转换器",
+          desc: "各种体积和容量单位之间的转换",
+          icon: "🧪",
+          keywords: "volume converter 体积 容量 转换"
+        },
+        {
+          url: "tools/converter/weight.html",
+          category: "converter",
+          name: "重量单位转换器",
+          desc: "各种重量单位之间的相互转换",
+          icon: "⚖️",
+          keywords: "weight converter 重量 转换"
+        },
+        // 提取器
+        {
+          url: "tools/extractor/link-extractor.html",
+          category: "extractor",
+          name: "链接提取器",
+          desc: "从文本提取链接",
+          icon: "🔗",
+          keywords: "链接提取器"
+        },
+        {
+          url: "tools/extractor/text-extractor.html",
+          category: "extractor",
+          name: "文本信息提取器",
+          desc: "提取文本中的特定内容",
+          icon: "📤",
+          keywords: "文本信息提取器"
+        },
+        {
+          url: "tools/extractor/regex-extractor.html",
+          category: "extractor",
+          name: "正则提取器",
+          desc: "使用正则表达式批量提取文本内容，支持导出 CSV",
+          icon: "🔍",
+          keywords: "正则 提取 regex 匹配 批量 邮箱 手机号 URL"
+        },
+        {
+          url: "tools/extractor/favicon-extractor.html",
+          category: "extractor",
+          name: "网站图标提取器",
+          desc: "提取网站的 Favicon 图标，支持多种尺寸下载",
+          icon: "🎯",
+          keywords: "favicon 图标 提取 网站 ico 下载"
+        },
+        // AI 工具
+        {
+          url: "tools/ai/prompt-templates.html",
+          category: "ai",
+          name: "Prompt 模板库",
+          desc: "AI 提示词模板库",
+          icon: "📝",
+          keywords: "prompt 模板库"
+        },
+        {
+          url: "tools/ai/token-counter.html",
+          category: "ai",
+          name: "Token 计数器",
+          desc: "估算 AI 模型 Token 数量",
+          icon: "🔢",
+          keywords: "token 计数器"
+        },
+        {
+          url: "tools/ai/claude-skills.html",
+          category: "ai",
+          name: "Claude Skills 精选",
+          desc: "Anthropic 官方 Skills 集合，提升 Claude 特定任务表现",
+          icon: "✨",
+          keywords: "claude skills anthropic 技能 plugin 插件 pdf xlsx docx pptx"
+        },
+        {
+          url: "tools/ai/mcp-guide.html",
+          category: "ai",
+          name: "MCP 配置指南",
+          desc: "Model Context Protocol 配置教程与热门服务器",
+          icon: "🔌",
+          keywords: "mcp model context protocol 配置 服务器 claude desktop code"
+        },
+        {
+          url: "tools/ai/mcp-clients.html",
+          category: "ai",
+          name: "MCP 客户端大全",
+          desc: "支持 MCP 的 AI 客户端、IDE 和开发工具汇总",
+          icon: "🖥️",
+          keywords:
+            "mcp 客户端 cherry studio cursor windsurf cline chatbox raycast openrouter ai ide"
+        },
+        {
+          url: "tools/ai/ai-models.html",
+          category: "ai",
+          name: "AI 模型对比表",
+          desc: "AI 模型对比表",
+          icon: "🤖",
+          keywords: "ai 模型对比表"
+        },
+        {
+          url: "tools/ai/ai-pricing.html",
+          category: "ai",
+          name: "AI API 价格计算器",
+          desc: "AI API 价格计算器",
+          icon: "💰",
+          keywords: "ai api 价格计算器"
+        },
+        {
+          url: "tools/ai/cursor-shortcuts.html",
+          category: "ai",
+          name: "Cursor 快捷键速查",
+          desc: "Cursor 快捷键速查",
+          icon: "🔧",
+          keywords: "cursor 快捷键速查"
+        },
+        {
+          url: "tools/ai/deepseek-guide.html",
+          category: "ai",
+          name: "DeepSeek API 使用指南 | 在线工具",
+          desc: "DeepSeek API 使用指南 | 在线工具",
+          icon: "🔧",
+          keywords: "deepseek api 使用指南 | 在线工具"
+        },
+        {
+          url: "tools/ai/sora-guide.html",
+          category: "ai",
+          name: "Sora 视频生成指南",
+          desc: "OpenAI Sora 视频生成入门指南，包含定价、使用教程、Prompt 技巧",
+          icon: "🔧",
+          keywords: "sora openai 视频生成 ai视频 text-to-video"
+        },
+        {
+          url: "tools/ai/ai-agent-guide.html",
+          category: "ai",
+          name: "AI Agent 入门指南",
+          desc: "AI Agent 2024 入门指南，涵盖主流框架、应用场景和发展趋势",
+          icon: "🔧",
+          keywords: "ai agent 智能体 autogpt langchain dify"
+        },
+        {
+          url: "tools/ai/claude-code-ecosystem.html",
+          category: "ai",
+          name: "Claude Code 生态大全",
+          desc: "Claude Code 生态系统完整指南：MCP Servers、Skills、插件市场",
+          icon: "🔧",
+          keywords: "claude code mcp skills 插件 servers"
+        },
+        {
+          url: "tools/ai/ai-coding-tools.html",
+          category: "ai",
+          name: "AI 编程工具对比",
+          desc: "Cursor vs Windsurf vs Cline vs Copilot 对比，AI 编程工具选择指南",
+          icon: "🔧",
+          keywords: "cursor windsurf cline copilot ai编程"
+        },
+        {
+          url: "tools/ai/prompt-tips-2025.html",
+          category: "ai",
+          name: "Prompt 技巧速查 2025",
+          desc: "2025 年 Prompt Engineering 实用技巧速查，含 10 大核心技术",
+          icon: "🔧",
+          keywords: "prompt 提示词 cot few-shot react"
+        },
+        {
+          url: "tools/ai/grok4-guide.html",
+          category: "ai",
+          name: "Grok 4 使用指南",
+          desc: "xAI Grok 4 完整指南：Grok 4 Heavy AIME满分，博士级AI，年费3000美元",
+          icon: "🔧",
+          keywords: "grok 4 grok 4 heavy xai 马斯克 elon musk aime"
+        },
+        {
+          url: "tools/ai/gemini3-guide.html",
+          category: "ai",
+          name: "Gemini 3 使用指南",
+          desc: "Google Gemini 3 完整指南：Pro/Flash 版本，万亿参数，100万token上下文",
+          icon: "🔧",
+          keywords: "gemini 3 gemini 3 pro gemini 3 flash google 谷歌 deep research"
+        },
+        {
+          url: "tools/ai/gpt5-guide.html",
+          category: "ai",
+          name: "GPT-5 完整指南",
+          desc: "OpenAI GPT-5 系列指南：GPT-5.2 三版本策略、Instant/Thinking/Pro 详解",
+          icon: "🔧",
+          keywords: "gpt-5 gpt5 openai chatgpt gpt-5.2 大语言模型"
+        },
+        {
+          url: "tools/ai/midjourney-v7-guide.html",
+          category: "ai",
+          name: "Midjourney V7 指南",
+          desc: "Midjourney V7 完整指南：草图模式、语音生图、Omni-Reference 全向参考",
+          icon: "🔧",
+          keywords: "midjourney v7 ai绘画 文生图 草图模式 语音生图"
+        },
+        {
+          url: "tools/ai/china-llm-2025.html",
+          category: "ai",
+          name: "国产大模型 2025",
+          desc: "2025年12月国产大模型最新：GLM-4.7、MiniMax M2.1、DeepSeek、Qwen",
+          icon: "🔧",
+          keywords: "glm-4.7 minimax m2.1 deepseek qwen 智谱 国产大模型"
+        },
+        {
+          url: "tools/ai/vibe-coding-guide.html",
+          category: "ai",
+          name: "Vibe Coding 入门指南",
+          desc: "2025 Collins 年度词汇 Vibe Coding：AI 辅助编程新范式完全指南",
+          icon: "🎵",
+          keywords: "vibe coding ai编程 cursor windsurf claude code copilot 自然语言编程 2025"
+        },
+        {
+          url: "tools/ai/ai-video-generation-2025.html",
+          category: "ai",
+          name: "AI 视频生成对比 2025",
+          desc: "可灵2.0/Runway Gen-4.5/Sora Turbo/海螺AI/Vidu 2.0 全面对比",
+          icon: "🎬",
+          keywords: "ai视频 可灵 runway sora 海螺 vidu 视频生成 文生视频 2025"
+        },
+        {
+          url: "tools/ai/openai-reasoning-models-2025.html",
+          category: "ai",
+          name: "OpenAI 推理模型指南",
+          desc: "o1/o3/o4-mini 推理模型完全解析：图像思维链、工具调用、Codex CLI",
+          icon: "🧠",
+          keywords: "openai o1 o3 o4-mini reasoning 推理模型 codex cli 思维链 2025"
+        },
+        {
+          url: "tools/ai/ai-coding-tools-2025.html",
+          category: "ai",
+          name: "AI 编程工具 2025",
+          desc: "2025 年 AI 编程工具全面对比：Cursor、Windsurf、Claude Code、Copilot",
+          icon: "💻",
+          keywords: "ai编程 cursor windsurf claude code copilot 2025"
+        },
+        {
+          url: "tools/ai/claude-4-guide.html",
+          category: "ai",
+          name: "Claude 4 使用指南",
+          desc: "Anthropic Claude 4 系列完整指南：Opus 4.5、Sonnet 4.5",
+          icon: "🤖",
+          keywords: "claude 4 opus sonnet anthropic ai"
+        },
+        {
+          url: "tools/ai/doubao-1.8-guide.html",
+          category: "ai",
+          name: "豆包 1.8 使用指南",
+          desc: "字节跳动豆包 1.8 大模型使用指南",
+          icon: "🫘",
+          keywords: "豆包 doubao 字节跳动 bytedance 大模型"
+        },
+        {
+          url: "tools/ai/humanoid-robots-2025.html",
+          category: "ai",
+          name: "人形机器人 2025",
+          desc: "2025 年人形机器人发展综述：特斯拉 Optimus、Figure、波士顿动力",
+          icon: "🤖",
+          keywords: "人形机器人 optimus figure boston dynamics 2025"
+        },
+        {
+          url: "tools/ai/mcp-protocol-guide.html",
+          category: "ai",
+          name: "MCP 协议指南",
+          desc: "Model Context Protocol 完整指南：连接 AI 与外部工具",
+          icon: "🔗",
+          keywords: "mcp protocol model context ai tools"
+        },
+        {
+          url: "tools/ai/nemotron-3-guide.html",
+          category: "ai",
+          name: "Nemotron 3 指南",
+          desc: "Nvidia Nemotron 3 开源大模型使用指南",
+          icon: "🟢",
+          keywords: "nemotron nvidia 开源 大模型"
+        },
+        {
+          url: "tools/ai/notebooklm-guide.html",
+          category: "ai",
+          name: "NotebookLM 指南",
+          desc: "Google NotebookLM AI 笔记助手使用指南",
+          icon: "📓",
+          keywords: "notebooklm google ai 笔记 助手"
+        },
+        {
+          url: "tools/ai/perplexity-guide.html",
+          category: "ai",
+          name: "Perplexity 指南",
+          desc: "Perplexity AI 深度搜索使用指南",
+          icon: "🔍",
+          keywords: "perplexity ai search 搜索 深度研究"
+        },
+        {
+          url: "tools/ai/suno-ai-music-guide.html",
+          category: "ai",
+          name: "Suno AI 音乐指南",
+          desc: "Suno V4 AI 音乐生成完整指南",
+          icon: "🎵",
+          keywords: "suno ai music 音乐生成 v4"
+        },
+        {
+          url: "tools/ai/wanxiang-2.6-guide.html",
+          category: "ai",
+          name: "万象 2.6 视频指南",
+          desc: "阿里巴巴万象 2.6 AI 视频生成指南",
+          icon: "🎬",
+          keywords: "万象 wanxiang alibaba 视频生成 ai"
+        }
+      ];
+
+      // ==================== DOM 元素 ====================
+      const searchInput = document.getElementById("search");
+      const toolsGrid = document.getElementById("tools-grid");
+      const categoriesContainer = document.getElementById("categories");
+      const noResults = document.getElementById("no-results");
+      const themeToggle = document.getElementById("theme-toggle");
+      const themeIcon = themeToggle.querySelector(".theme-icon");
+      const htmlElement = document.documentElement;
+      const searchResultsCount = document.getElementById("search-results-count");
+
+      let currentCategory = "all";
+      let toolCards = [];
+
+      // ==================== 主题管理 ====================
+      const savedTheme = localStorage.getItem("theme") || "dark";
+      if (savedTheme === "light") {
+        htmlElement.setAttribute("data-theme", "light");
+        themeIcon.textContent = "☀️";
+      }
+
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlElement.getAttribute("data-theme");
+        const newTheme = currentTheme === "light" ? "dark" : "light";
+        if (newTheme === "light") {
+          htmlElement.setAttribute("data-theme", "light");
+          themeIcon.textContent = "☀️";
+        } else {
+          htmlElement.removeAttribute("data-theme");
+          themeIcon.textContent = "🌙";
+        }
+        localStorage.setItem("theme", newTheme);
+      });
+
+      // ==================== 收藏管理 ====================
+      const FAVORITES_KEY = "html_tools_favorites_v1";
+      let favorites = [];
+
+      try {
+        const stored = localStorage.getItem(FAVORITES_KEY);
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          favorites = Array.isArray(parsed) ? parsed : [];
+        }
+      } catch (e) {
+        console.warn("Could not load favorites:", e);
+        favorites = [];
+      }
+
+      function saveFavorites() {
+        try {
+          localStorage.setItem(FAVORITES_KEY, JSON.stringify(favorites));
+        } catch (e) {
+          console.warn("Could not save favorites:", e);
+        }
+      }
+
+      function isFavorite(url) {
+        return favorites.includes(url);
+      }
+
+      function toggleFavorite(url, btn, event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const index = favorites.indexOf(url);
+        if (index > -1) {
+          favorites.splice(index, 1);
+          btn.classList.remove("active");
+          btn.textContent = "☆";
+        } else {
+          favorites.push(url);
+          btn.classList.add("active");
+          btn.textContent = "★";
+        }
+        saveFavorites();
+
+        if (currentCategory === "favorites") {
+          filterTools();
+        }
+      }
+
+      // ==================== 渲染分类按钮 ====================
+      function renderCategories() {
+        const categoryCounts = {};
+        TOOLS.forEach((tool) => {
+          categoryCounts[tool.category] = (categoryCounts[tool.category] || 0) + 1;
+        });
+
+        const activeCategories = CATEGORIES.filter(
+          (cat) => cat.id === "all" || cat.id === "favorites" || categoryCounts[cat.id]
+        );
+
+        // Update stats
+        document.getElementById("tool-count").textContent = TOOLS.length;
+        document.getElementById("category-count").textContent = activeCategories.length - 2; // Exclude 'all' and 'favorites'
+
+        activeCategories.forEach((cat) => {
+          const btn = document.createElement("button");
+          btn.className = "category-btn" + (cat.id === "all" ? " active" : "");
+          btn.dataset.category = cat.id;
+
+          const icon = document.createElement("span");
+          icon.className = "cat-icon";
+          icon.textContent = cat.icon;
+          btn.appendChild(icon);
+
+          const span = document.createElement("span");
+          span.textContent = cat.name;
+          btn.appendChild(span);
+
+          if (cat.id !== "all" && cat.id !== "favorites" && categoryCounts[cat.id]) {
+            const count = document.createElement("span");
+            count.className = "cat-count";
+            count.textContent = categoryCounts[cat.id];
+            btn.appendChild(count);
+          }
+
+          btn.addEventListener("click", () => {
+            document.querySelectorAll(".category-btn").forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            currentCategory = cat.id;
+            filterTools();
+          });
+          categoriesContainer.appendChild(btn);
+        });
+      }
+
+      // ==================== 渲染工具卡片 ====================
+      function renderTools() {
+        TOOLS.forEach((tool, index) => {
+          const card = document.createElement("a");
+          card.href = tool.url;
+          card.className = "tool-card";
+          card.dataset.category = tool.category;
+          card.dataset.keywords = tool.keywords;
+          card.style.animationDelay = Math.min(index * 0.02, 0.4) + "s";
+
+          const header = document.createElement("div");
+          header.className = "tool-card-header";
+
+          const titleGroup = document.createElement("div");
+          titleGroup.className = "tool-title-group";
+
+          const iconDiv = document.createElement("div");
+          iconDiv.className = "tool-icon";
+          iconDiv.textContent = tool.icon;
+
+          const h3 = document.createElement("h3");
+          h3.textContent = tool.name;
+
+          titleGroup.appendChild(iconDiv);
+          titleGroup.appendChild(h3);
+
+          const favBtn = document.createElement("button");
+          favBtn.className = "favorite-btn" + (isFavorite(tool.url) ? " active" : "");
+          favBtn.type = "button";
+          favBtn.setAttribute("aria-label", "收藏");
+          favBtn.tabIndex = 0;
+          favBtn.textContent = isFavorite(tool.url) ? "★" : "☆";
+          favBtn.addEventListener("click", (e) => toggleFavorite(tool.url, favBtn, e));
+          favBtn.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              e.stopPropagation();
+              toggleFavorite(tool.url, favBtn, e);
+            }
+          });
+
+          header.appendChild(titleGroup);
+          header.appendChild(favBtn);
+
+          const desc = document.createElement("p");
+          desc.textContent = tool.desc;
+
+          const footer = document.createElement("div");
+          footer.className = "tool-card-footer";
+
+          const tag = document.createElement("span");
+          tag.className = "tool-tag";
+          tag.textContent = tool.category;
+
+          const arrow = document.createElement("span");
+          arrow.className = "tool-arrow";
+          arrow.textContent = "→";
+
+          footer.appendChild(tag);
+          footer.appendChild(arrow);
+
+          card.appendChild(header);
+          card.appendChild(desc);
+          card.appendChild(footer);
+
+          toolsGrid.appendChild(card);
+        });
+
+        toolCards = document.querySelectorAll(".tool-card");
+      }
+
+      // ==================== 过滤工具 ====================
+      function filterTools() {
+        const query = searchInput.value.toLowerCase().trim();
+        let visibleCount = 0;
+
+        toolCards.forEach((card, index) => {
+          const tool = TOOLS[index];
+          const matchesCategory =
+            currentCategory === "all" ||
+            (currentCategory === "favorites" && isFavorite(tool.url)) ||
+            tool.category === currentCategory;
+
+          const matchesSearch =
+            !query ||
+            tool.name.toLowerCase().includes(query) ||
+            tool.desc.toLowerCase().includes(query) ||
+            tool.keywords.toLowerCase().includes(query);
+
+          if (matchesCategory && matchesSearch) {
+            card.classList.remove("hidden");
+            visibleCount++;
+          } else {
+            card.classList.add("hidden");
+          }
+        });
+
+        const noResultsIcon = noResults.querySelector(".no-results-icon");
+        const noResultsText = noResults.querySelector("p");
+
+        if (visibleCount === 0) {
+          if (currentCategory === "favorites" && !query) {
+            noResultsIcon.textContent = "⭐";
+            noResultsText.textContent = "还没有收藏的工具";
+          } else {
+            noResultsIcon.textContent = "∅";
+            noResultsText.textContent = "没有找到匹配的工具";
+          }
+          noResults.classList.add("show");
+        } else {
+          noResults.classList.remove("show");
+        }
+
+        if (query || currentCategory !== "all") {
+          searchResultsCount.textContent =
+            visibleCount > 0 ? "找到 " + visibleCount + " 个工具" : "";
+        } else {
+          searchResultsCount.textContent = "";
+        }
+      }
+
+      // ==================== 事件绑定 ====================
+      searchInput.addEventListener("input", filterTools);
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "/" && document.activeElement !== searchInput) {
+          e.preventDefault();
+          searchInput.focus();
+        }
+        if (e.key === "Escape" && document.activeElement === searchInput) {
+          searchInput.blur();
+        }
+      });
+
+      // ==================== 初始化 ====================
+      renderCategories();
+      renderTools();
+    </script>
+  </body>
+</html>
